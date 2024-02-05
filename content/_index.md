@@ -171,7 +171,7 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Dissipative Chaotic Scattering
+        - name: Dynamical Systems
           tag: Dynamical Systems
         - name: Other
           tag: Demo
