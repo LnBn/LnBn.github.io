@@ -18,7 +18,7 @@ links:
   - icon: twitter
     icon_pack: fab
     name: Follow
-    url: https://twitter.com/LnBn
+    url: https://twitter.com/lachlan_burton
 url_code: ''
 url_pdf: ''
 url_slides: ''

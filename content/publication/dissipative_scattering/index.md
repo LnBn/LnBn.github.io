@@ -35,7 +35,7 @@ abstract: We investigate the extent to which the probabilistic properties of cha
 summary: We propose a probabilistic model to understand the transient chaos properties of open chaotic systems subject to dissipation.
 
 tags:
-- Source Themes
+- Dynamical Systems
 featured: true
 
 # links:
@@ -62,7 +62,7 @@ image:
 #   Simply enter your project's folder or file name without extension.
 #   E.g. `internal-project` references `content/project/internal-project/index.md`.
 #   Otherwise, set `projects: []`.
-projects: []
+projects: ['The Hénon–Heiles system']
 
 # Slides (optional).
 #   Associate this publication with Markdown slides.
