@@ -14,7 +14,7 @@ authors:
   # - 'Equal contribution'
   # - 'Equal contribution'
 
-date: '2013-07-01T00:00:00Z'
+date: '2023-11-29T00:00:00Z'
 doi: 'https://doi.org/10.1103/PhysRevE.108.054223'
 
 # Schedule page publish date (NOT publication's date).
@@ -31,8 +31,8 @@ publication_short: "Phys.Rev.E"
 
 abstract: We investigate the extent to which the probabilistic properties of chaotic scattering systems with dissipation can be understood from the properties of the dissipation-free system. For large energies, a fully chaotic scattering leads to an exponential decay of the survival probability $$P(t) \sim e^{-\kappa t}$$, with an escape rate $$\kappa$$ that decreases with energy. Dissipation leads to the appearance of different finite-time regimes in $$P(t)$$. We show how these different regimes can be understood for small dissipations and long times from the (effective) escape rate $$\kappa$$ (including the nonhyperbolic regime) of the conservative system, until the energy reaches a critical value at which no escape is possible. More generally, we argue that for small dissipation and long times the surviving trajectories in the dissipative system are distributed according to the conditionally invariant measure of the conservative system at the corresponding energy. Quantitative predictions of our general theory are compared with numerical simulations in the Hénon-Heiles model.
 
-# # Summary. An optional shortened abstract.
-# summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+# Summary. An optional shortened abstract.
+summary: We propose a probabilistic model to understand the transient chaos properties of open chaotic systems subject to dissipation.
 
 tags:
 - Source Themes
