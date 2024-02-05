@@ -2,7 +2,7 @@
 title: The Hénon–Heiles System
 summary: Transient Chaos in an open chaotic Hamiltonian system.
 tags:
-  - Dynamical Systems
+  - *
 date: '2024-02-06T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).
@@ -13,10 +13,10 @@ image:
   focal_point: Smart
 
 links:
-  - icon: twitter
-    icon_pack: fab
-    name: Follow
-    url: https://twitter.com/lachlan_burton
+  - icon: ''
+    icon_pack: ''
+    name: ''
+    url: ''
 url_code: ''
 url_pdf: ''
 url_slides: ''
