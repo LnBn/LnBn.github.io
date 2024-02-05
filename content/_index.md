@@ -171,8 +171,8 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Deep Learning
-          tag: Deep Learning
+        - name: Dissipative Chaotic Scattering
+          tag: Dynamical Systems
         - name: Other
           tag: Demo
     design:
