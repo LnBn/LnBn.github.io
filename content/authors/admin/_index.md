@@ -52,12 +52,12 @@ skills:
   - name: Technical
     items:
       - name: Python
-        description: ''
+        description: 'graph-tool, NetworkX, and tools for data science'
         percent: 80
         icon: python
         icon_pack: fab
       - name: Julia
-        description: ''
+        description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
         percent: 100
         icon: julia 
 
