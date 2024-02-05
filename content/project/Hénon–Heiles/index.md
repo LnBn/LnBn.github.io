@@ -3,8 +3,6 @@ title: The Hénon–Heiles System
 summary: Transient Chaos in an open chaotic Hamiltonian system.
 tags:
   - Dynamical Systems
-  - Transient Chaos
-  - Chaotic Scattering
 date: '2024-02-06T00:00:00Z'
 
 # Optional external URL for project (replaces project detail page).

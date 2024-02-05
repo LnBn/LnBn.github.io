@@ -200,20 +200,20 @@ sections:
     design:
       columns: '2'
       view: card
-#   - block: collection
-#     content:
-#       title: Recent Publications
-#       text: |-
-#         {{% callout note %}}
-#         Quickly discover relevant content by [filtering publications](./publication/).
-#         {{% /callout %}}
-#       filters:
-#         folders:
-#           - publication
-#         exclude_featured: true
-#     design:
-#       columns: '2'
-#       view: citation
+  - block: collection
+    content:
+      title: Recent Publications
+      text: |-
+        {{% callout note %}}
+        Quickly discover relevant content by [filtering publications](./publication/).
+        {{% /callout %}}
+      filters:
+        folders:
+          - publication
+        exclude_featured: true
+    design:
+      columns: '2'
+      view: citation
 #   - block: collection
 #     id: talks
 #     content:
@@ -234,8 +234,7 @@ sections:
     content:
       title: Contact
       subtitle:
-      text: |-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi diam, venenatis ut magna et, vehicula efficitur enim.
+      text: ''
       # Contact (add or remove contact options as necessary)
       email: L.Burton@maths.usyd.edu.au
     #   phone: 888 888 88 88
