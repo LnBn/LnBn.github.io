@@ -51,48 +51,52 @@ sections:
     design:
       columns: '1'
 
-  - block: Teaching
-    content: 
-      title: Teaching
-      text: Here are some of the subjects in which I have teaching experience, from my undergraduate days to now.
-      username: admin
-    design: 
-      columns: '1'
-#   - block: experience
-#     content:
-#       title: Experience
-#       # Date format for experience
-#       #   Refer to https://docs.hugoblox.com/customization/#date-format
-#       date_format: Jan 2006
-#       # Experiences.
-#       #   Add/remove as many `experience` items below as you like.
-#       #   Required fields are `title`, `company`, and `date_start`.
-#       #   Leave `date_end` empty if it's your current employer.
-#       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
-#       items:
-#         - title: CEO
-#           company: GenCoin
-#           company_url: ''
-#           company_logo: org-gc
-#           location: California
-#           date_start: '2021-01-01'
-#           date_end: ''
-#           description: |2-
-#               Responsibilities include:
+  # - block: Teaching
+  #   content: 
+  #     title: Teaching
+  #     text: Here are some of the subjects in which I have teaching experience, from my undergraduate days to now.
+  #     username: admin
+  #   design: 
+  #     columns: '1'
+  - block: experience
+    content:
+      title: Teaching Experience
+      # Date format for experience
+      #   Refer to https://docs.hugoblox.com/customization/#date-format
+      date_format: Feb 2024
+      # Experiences.
+      #   Add/remove as many `experience` items below as you like.
+      #   Required fields are `title`, `company`, and `date_start`.
+      #   Leave `date_end` empty if it's your current employer.
+      #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
+      items:
+        - title: Casual Academic
+          company: The University of Sydney
+          company_url: ''
+          # company_logo: org-gc
+          location: Sydney, New South Wales, Australia
+          date_start: '2019-07-01'
+          date_end: '2023-12-31'
+          description: |2-
+              Courses Tutored:
 
-#               * Analysing
-#               * Modelling
-#               * Deploying
-#         - title: Professor of Semiconductor Physics
-#           company: University X
-#           company_url: ''
-#           company_logo: org-x
-#           location: California
-#           date_start: '2016-01-01'
-#           date_end: '2020-12-31'
-#           description: Taught electronic engineering and researched semiconductor physics.
-    # design:
-    #   columns: '2'
+              * MATH1021 - Calculus of One Variable
+              * MATH1023 - Multivariable Calculus & Modelling
+              * MATH1002 - Linear Algebra
+              * MATH1004 - Discrete Mathematics
+              * MATH2021 - Vector Calculus & Differential Equations
+              * MATH2023 - Analysis
+              * MATH3888 - Projects in Mathematics (Complex Networks & Microbiology Stream)
+        # - title: Professor of Semiconductor Physics
+        #   company: University X
+        #   company_url: ''
+        #   company_logo: org-x
+        #   location: California
+        #   date_start: '2016-01-01'
+        #   date_end: '2020-12-31'
+        #   description: Taught electronic engineering and researched semiconductor physics.
+    design:
+      columns: '2'
 #   - block: accomplishments
 #     content:
 #       # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
