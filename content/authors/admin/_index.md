@@ -64,7 +64,7 @@ skills:
         icon: julialang-icon 
 
 Teaching:
-  - name: Courses Tutored at Uni Sydney
+  - name: Courses Tutored at The University of Sydney (2019-2023)
     items:
       - name: MATH1021
         description: 'Calculus of One Variable'
@@ -92,6 +92,21 @@ Teaching:
         icon_pack: hero
       - name: MATH3888
         description: 'Projects in Mathematics (Complex Networks & Microbiology Stream)'
+        icon: academic-cap
+        icon_pack: hero
+
+  - name: Courses Tutored at The University of Queensland (2016-2018)
+    items:
+      - name: MATH1051
+        description: 'Calculus & Linear Algebra I'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH1052
+        description: 'Multivariate Calculus & Ordinary Differential Equations'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH2000
+        description: 'Calculus & Linear Algebra II'
         icon: academic-cap
         icon_pack: hero
 
