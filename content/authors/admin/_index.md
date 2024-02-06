@@ -53,13 +53,13 @@ skills:
     items:
       - name: Python
         description: 'graph-tool, NetworkX, and tools for data science'
-        percent: 80
+        percent: 60
         icon: python
         icon_pack: fab
       - name: Julia
         description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
         percent: 100
-        icon: julia 
+        icon: julialang-icon 
 
   # - name: Hobbies
   #   color: '#eeac02'
@@ -107,13 +107,13 @@ social:
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
-  - icon: cv
-    icon_pack: ai
-    link: uploads/resume.pdf
+  # - icon: cv
+  #   icon_pack: ai
+  #   link: uploads/resume.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
 
-I am applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include transient chaos, Hamiltonian mechanics, and complex systems.
+I am an applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include transient chaos, Hamiltonian mechanics, and complex systems.
 {style="text-align: justify;"}
