@@ -53,9 +53,9 @@ sections:
 
   - block: Teaching
     content: 
-    title: Teaching
-    text: Here are some of the subjects in which I have teaching experience, from my undergraduate days to now.
-    username: admin
+      title: Teaching
+      text: Here are some of the subjects in which I have teaching experience, from my undergraduate days to now.
+      username: admin
     design: 
       columns: '1'
 #   - block: experience
