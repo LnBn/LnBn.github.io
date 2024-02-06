@@ -32,6 +32,8 @@ interests:
   - Transient Chaos
   - Hamiltonian Mechanics
   - Complex Systems
+  - Data Science
+  - Scientific Computing
 
 # Education to show in About widget
 education:
