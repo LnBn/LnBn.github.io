@@ -6,8 +6,8 @@ title: 'Probabilistic Description of Dissipative Chaotic Scattering'
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - admin
-  - Eduardo G. Altmann
   - Holger R. Dullin
+  - Eduardo G. Altmann
 
 # Author notes (optional)
 # author_notes:
