@@ -93,7 +93,7 @@ sections:
           company: The University of Queensland
           # company_url: ''
           # company_logo: org-gc
-          location: Sydney, New South Wales, Australia
+          location: Brisbane, Queensland, Australia
           date_start: '2016-03-01'
           date_end: '2018-12-31'
           description: |2-
