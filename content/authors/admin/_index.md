@@ -63,6 +63,38 @@ skills:
         percent: 100
         icon: julialang-icon 
 
+Teaching:
+  - name: Courses Tutored at Uni Sydney
+    items:
+      - name: MATH1021
+        description: 'Calculus of One Variable'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH1023
+        description: 'Multivariable Calculus & Modelling'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH1002
+        description: 'Linear Algebra'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH1004
+        description: 'Discrete Mathematics'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH2021
+        description: 'Vector Calculus & Differential Equations'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH2023
+        description: 'Analysis'
+        icon: academic-cap
+        icon_pack: hero
+      - name: MATH3888
+        description: 'Projects in Mathematics (Complex Networks & Microbiology Stream)'
+        icon: academic-cap
+        icon_pack: hero
+
   # - name: Hobbies
   #   color: '#eeac02'
   #   color_border: '#f0bf23'
