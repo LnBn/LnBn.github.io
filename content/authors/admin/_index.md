@@ -103,9 +103,9 @@ social:
   - icon: github
     icon_pack: fab
     link: https://github.com/LnBn
-  - icon: linkedin
-    icon_pack: fab
-    link: https://www.linkedin.com/in/lachlan-burton-0b2534134/
+  # - icon: linkedin
+  #   icon_pack: fab
+  #   link: https://www.linkedin.com/in/lachlan-burton-0b2534134/
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
@@ -117,5 +117,5 @@ social:
 highlight_name: true
 ---
 
-I am an applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include transient chaos, Hamiltonian mechanics, and complex systems.
+I am an applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include transient chaos, Hamiltonian mechanics, and complex systems. I am also an enthusiast of scientific computing, particularly using the Julia programming language.
 {style="text-align: justify;"}
