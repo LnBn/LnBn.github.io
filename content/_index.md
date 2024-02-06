@@ -59,6 +59,7 @@ sections:
   #   design: 
   #     columns: '1'
   - block: experience
+    id: teaching 
     content:
       title: Teaching Experience
       # Date format for experience
