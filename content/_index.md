@@ -62,7 +62,7 @@ sections:
     id: teaching 
     content:
       title: Teaching Experience
-      text: Here are some of the subjects in which I have teaching experience, from my undergraduate days to now.
+      # text: Here are some of the subjects in which I have teaching experience, from my undergraduate days to now.
       # Date format for experience
       #   Refer to https://docs.hugoblox.com/customization/#date-format
       date_format: Feb 2024
