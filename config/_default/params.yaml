@@ -19,7 +19,6 @@ marketing:
     local_business_type: ''
     org_name: ''
     description: 'Personal webpage of Dr Lachlan G. Burton.'
-    # description: 'A highly-customizable Hugo academic resume theme powered by Hugo Blox Builder.'
     twitter: 'GetResearchDev'
   analytics:
     google_analytics: ''
