@@ -61,7 +61,7 @@ skills:
       - name: Julia
         description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
         percent: 100
-        icon: julialang-icon 
+        icon: 'julialang-icon.svg'
 
 Teaching:
   - name: Courses Tutored at The University of Sydney (2019-2023)
@@ -165,4 +165,6 @@ highlight_name: true
 ---
 
 I am an applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include transient chaos, Hamiltonian mechanics, and complex systems. I am also an enthusiast of scientific computing, particularly using the Julia programming language. You can find details of some of my work below.
+
+(Webpage still under construction)
 {style="text-align: justify;"}
