@@ -32,3 +32,6 @@ slides: ""
 ---
 
 The 3-body problem is one of the most famous problems in classical physics. It concerns the movement due to gravitational interactions of three massive objects (stars, planets, etc.). It is famously difficult to study, and so numerous simplified versions of the problem, such as the 'restricted' 3-body problem, have received significant attention. Here we make numerous assumptions, such as one of the objects being relatively massless (e.g a particle, spacecraft) compared to the other two. In this way the two larger objects experience a 2-body problem and evolve on Kepler ellipses. We only focus on the motion of the particle. 
+
+
+(To be continued)
