@@ -101,7 +101,7 @@ sections:
               Courses Tutored:
 
               * MATH1051 - Calculus & Linear Algebra I
-              * MATH1023 - Multivariate Calculus & Ordinary Differential Equations
+              * MATH1052 - Multivariate Calculus & Ordinary Differential Equations
               * MATH2000 - Calculus & Linear Algebra II
         # - title: Professor of Semiconductor Physics
         #   company: University X
