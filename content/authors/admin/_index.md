@@ -48,20 +48,21 @@ education:
       institution: The University of Queensland
       year: 2014-2017
 
-# Skills
-# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
-# skills:
-#   - name: Technical
-#     items:
-#       - name: Python
-#         description: 'graph-tool, NetworkX, and tools for data science'
-#         percent: 60
-#         icon: python
-#         icon_pack: fab
-#       - name: Julia
-#         description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
-#         percent: 100
-#         icon: 'julialang-icon.svg'
+#Skills
+#For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
+skills:
+  - name: Technical
+    items:
+      - name: Python
+        description: 'graph-tool, NetworkX, and tools for data science'
+        percent: 60
+        icon: python
+        icon_pack: fab
+      - name: Julia
+        description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
+        percent: 100
+        icon: julia
+        icon_pack: devicon
 
 Teaching:
   - name: Courses Tutored at The University of Sydney (2019-2023)
