@@ -62,7 +62,7 @@ skills:
         description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
         # percent: 100
         icon: julia-original
-        # icon_pack: fab
+        icon_pack: custom
 
 Teaching:
   - name: Courses Tutored at The University of Sydney (2019-2023)
