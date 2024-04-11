@@ -61,8 +61,8 @@ skills:
       - name: Julia
         description: 'Packages for Scientific Computing, Dynamical Systems and Data Visualisation'
         # percent: 100
-        icon: devicon/julia
-        # icon_pack: devicon
+        icon: julia
+        icon_pack: fab
 
 Teaching:
   - name: Courses Tutored at The University of Sydney (2019-2023)
