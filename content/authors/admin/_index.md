@@ -165,7 +165,9 @@ social:
 highlight_name: true
 ---
 
-I am an applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include transient chaos, Hamiltonian mechanics, and complex systems. I am also an enthusiast of scientific computing, particularly using the Julia programming language. You can find details of some of my work below.
+I am an applied mathematician from Queensland, Australia. I received my PhD in Dynamical Systems from the University of Sydney in 2024. My research interests include Dynamical Systems, Complex Systems and Networks. I am also an enthusiast of scientific computing, particularly using the Julia programming language. Starting in July 2024, I will be a Postdoctoral Research Associate in the School of Electronic Engineering and Computer Science at Queen Mary University of London.
+
+You can find details of some of my work below.
 
 (Webpage still under construction)
 {style="text-align: justify;"}
