@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://LnBn.github.io/sitemap.xml
