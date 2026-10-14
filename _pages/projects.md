@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Independent projects applying statistical inference, networks and heavy-tail methods to market data.
+description: Independent projects beyond my academic work.
 nav: true
 nav_order: 3
 horizontal: false
