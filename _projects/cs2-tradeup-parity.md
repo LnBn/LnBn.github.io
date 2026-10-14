@@ -27,6 +27,7 @@ I computed this floor for every eligible skin from current market prices and the
 - **The floor spread down a tier** through the older ten-for-one trade-ups, so the cheapest skin of the next tier down also sits at about its implied floor.
 
 {% include figure.liquid loading="eager" path="assets/img/projects/cs2_event_gap.png" title="Lift to the trade-up floor" class="img-fluid rounded z-depth-1" %}
+
 <div class="caption">
 Each blue dot is one eligible skin: its price change after the update against the gap between its new floor and its old price. The line is the no-arbitrage prediction: no change for skins already above the floor, and a rise equal to the gap for skins below it. Orange dots are the same skins in a window before the update.
 </div>
