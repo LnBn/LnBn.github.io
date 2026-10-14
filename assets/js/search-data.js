@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "projects-an-overnight-price-floor",
-          title: 'An overnight price floor',
-          description: "How a Counter-Strike 2 update created a no-arbitrage floor in the skin market, and how fast prices found it.",
+        },{id: "projects-a-rule-change-that-crashed-a-market",
+          title: 'A rule change that crashed a market',
+          description: "How one Counter-Strike 2 update halved the price of knives and gloves, and set a no-arbitrage floor under the skins that can be traded for them.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/cs2-tradeup-parity/";
             },},{id: "projects-learn-claude",
