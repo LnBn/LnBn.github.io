@@ -1,14 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - LnBn
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - LnBn/sbm-equity-networks
+  - LnBn/tail-risk-surrogates
+  - LnBn/cs2-tradeup-parity
+  - LnBn/DissipativeScattering
