@@ -18,56 +18,21 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "Independent projects applying statistical inference, networks and heavy-tail methods to market data.",
+          description: "Independent projects beyond my academic work.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-blog",
-          title: "blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "post-beyond-sectors-what-groups-do-us-stocks-really-form",
-        
-          title: "Beyond sectors: what groups do US stocks really form?",
-        
-        description: "A Bayesian stochastic block model finds groups of stocks that refine industry sectors, and shows how COVID briefly broke them apart.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/beyond-sectors/";
-          
-        },
-      },{id: "post-how-heavy-are-the-tails-of-financial-returns",
-        
-          title: "How heavy are the tails of financial returns?",
-        
-        description: "Testing power-law, lognormal and exponential tails for 22 assets, without estimating a single parameter.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/heavy-tails/";
-          
-        },
-      },{id: "post-an-overnight-price-floor-in-the-counter-strike-2-skin-market",
-        
-          title: "An overnight price floor in the Counter-Strike 2 skin market",
-        
-        description: "A game update turned some skins into lottery tickets on knives, and prices found the implied floor within a day.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/tradeup-price-floor/";
-          
-        },
-      },{id: "projects-an-overnight-price-floor",
+        },{id: "projects-an-overnight-price-floor",
           title: 'An overnight price floor',
           description: "How a Counter-Strike 2 update created a no-arbitrage floor in the skin market, and how fast prices found it.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/cs2-tradeup-parity/";
+            },},{id: "projects-learn-claude",
+          title: 'learn-claude',
+          description: "A personal AI tutor that runs inside Claude Code, with lessons, graded quizzes, textbook courses and exams written into Obsidian notes.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/learn-claude/";
             },},{id: "projects-beyond-sectors",
           title: 'Beyond sectors',
           description: "What groups do US stocks form once the market is removed? Bayesian stochastic block models of 250 S&amp;P 500 stocks, 2010–2026.",
