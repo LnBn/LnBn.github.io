@@ -70,6 +70,7 @@ figcaption b { color: var(--ink); font-weight: 500; }
 .eq .up { font-style: normal; }
 .aside { border-left: 3px solid var(--rule); padding-left: 1rem; display: flex; flex-direction: column; gap: 0.8rem; }
 .aside h3 { font-size: var(--s-h3); }
+.refs li { font-size: 0.95rem; color: var(--ink-2); }
 .callout { border-left: 3px solid var(--adapt); padding: 0.2rem 0 0.2rem 1rem; color: var(--ink-2); }
 ul.plain { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; }
 .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; align-self: flex-start; }
@@ -88,14 +89,14 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
   <header class="col">
     <span class="eyebrow">Food-web theory · work in progress · October 2026</span>
     <h1>Flexible diets, fragile routes</h1>
-    <p class="standfirst">Predators that switch between prey help complex food webs hold together. Our simulations show why, and that the speed of switching matters in a way nobody expected.</p>
+    <p class="standfirst">Predators that switch between prey help complex food webs keep their species. Our simulations show why, and show that the speed of switching matters in a different way from what has been assumed.</p>
     <p class="byline">Lachlan Burton · a plain-language summary of work in progress on adaptive food webs. Results are preliminary. <a class="back" href="/projects/">Back to projects</a></p>
   </header>
 
   <section class="col">
     <h2>The question</h2>
-    <p>Are complex ecosystems more stable than simple ones, or less? Classic models, going back to Robert May in 1972, say less: more species and more feeding links should make things fragile. Yet real ecosystems are very complex, and they persist.</p>
-    <p>In 2003 Michio Kondoh suggested why. Real predators don't eat from a fixed menu. They shift towards whatever prey is paying off best at the moment. In his simulations, predators that did this made complex food webs more likely to keep all their species.</p>
+    <p>Are complex ecosystems more stable than simple ones, or less? Random-network models, starting with May (1972), predict less: adding species and feeding links makes a community less likely to be stable. Yet real ecosystems are very complex, and they persist.</p>
+    <p>Kondoh (2003) proposed an explanation. Real predators do not eat from a fixed menu; they shift their foraging towards whichever prey currently gives the best return. In his simulations, when predators adapted in this way, more complex food webs were more likely to keep all their species.</p>
   </section>
 
   <section class="wide">
@@ -143,7 +144,7 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
         <text class="fig-text" x="764" y="160">almost none</text>
       </svg>
       </div>
-      <figcaption><b>How a predator adapts.</b> Line width shows how the predator splits its foraging effort. An adaptive predator moves effort towards the prey that pays best, here the common one. Eating it down makes it pay less, so effort spreads out until all the prey it eats pay about the same. Think of shoppers drifting between checkout queues until the waits even out. The rare prey gets left alone.</figcaption>
+      <figcaption><b>How a predator adapts.</b> Line width shows how the predator divides its foraging effort. An adaptive predator moves effort towards the prey with the best return, here the common one. Eating that prey down lowers its return, so effort spreads until every prey in the diet returns the same. Shoppers spread across checkout queues by the same logic, until the waits are equal. The rare prey is left alone.</figcaption>
     </figure>
   </section>
 
@@ -155,23 +156,23 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
 
   <section class="col">
     <h2>The model in two equations</h2>
-    <p>For anyone who wants to see the machinery. Each species <i>i</i> has a population <i>N<sub>i</sub></i>, and it changes like this:</p>
+    <p>The model is Kondoh's. Each species <i>i</i> has a population density <i>N<sub>i</sub></i>, which changes as</p>
     <div class="eq">dN<sub>i</sub>/dt = N<sub>i</sub> <span class="up">(</span> r<sub>i</sub> − N<sub>i</sub> + e Σ<sub>j</sub> a<sub>ij</sub> f<sub>ij</sub> N<sub>j</sub> − Σ<sub>k</sub> a<sub>ki</sub> f<sub>ki</sub> N<sub>k</sub> <span class="up">)</span></div>
-    <p>Read the bracket left to right. A species grows at its own rate <i>r<sub>i</sub></i>, is held back by crowding (<i>−N<sub>i</sub></i>), gains from what it eats, and loses to whatever eats it. In the gain term, <i>f<sub>ij</sub></i> is how good predator <i>i</i> is at catching prey <i>j</i>, <i>a<sub>ij</sub></i> is the share of its foraging effort spent on <i>j</i>, and <i>e</i> is the fraction of food that turns into new growth. The last term is the same thing seen from the prey's side, summed over its predators <i>k</i>.</p>
+    <p>Read the bracket left to right. A species grows at its own rate <i>r<sub>i</sub></i>, is limited by crowding (<i>−N<sub>i</sub></i>), gains from what it eats and loses to what eats it. In the gain term, <i>f<sub>ij</sub></i> is the rate at which predator <i>i</i> captures prey <i>j</i>, <i>a<sub>ij</sub></i> is the share of its foraging effort spent on <i>j</i>, and <i>e</i> is the fraction of eaten food converted into new growth. The loss term is the same interaction seen from the prey's side, summed over its predators <i>k</i>.</p>
     <p>The second equation is the adaptation rule:</p>
     <div class="eq">da<sub>ij</sub>/dt = G a<sub>ij</sub> <span class="up">(</span> e f<sub>ij</sub> N<sub>j</sub> − Σ<sub>l</sub> a<sub>il</sub> e f<sub>il</sub> N<sub>l</sub> <span class="up">)</span></div>
-    <p>Here <i>e f<sub>ij</sub> N<sub>j</sub></i> is what prey <i>j</i> currently pays predator <i>i</i> for each unit of effort, and the sum after it is the predator's average return across its whole diet. If a prey pays more than average, effort on it grows; if less, it shrinks. <i>G</i> sets how fast this happens. A fixed diet is just <i>a<sub>ij</sub></i> = 1/<i>k<sub>i</sub></i>, where <i>k<sub>i</sub></i> is the number of prey that <i>i</i> can eat.</p>
+    <p>Here <i>e f<sub>ij</sub> N<sub>j</sub></i> is the return per unit of effort that predator <i>i</i> gets from prey <i>j</i>, and the sum after it is the predator's average return over its whole diet. Effort on a prey grows if it returns more than average and shrinks if it returns less, at a rate set by <i>G</i>. This is the replicator equation of evolutionary game theory (Hofbauer &amp; Sigmund 1998), applied to each predator's diet. A fixed diet is <i>a<sub>ij</sub></i> = 1/<i>k<sub>i</sub></i>, where <i>k<sub>i</sub></i> is the number of prey species that <i>i</i> can eat.</p>
   </section>
 
   <section class="col">
     <span class="tag solid">Proven in a special case, seen in every simulation</span>
     <h2>Each web has one end state</h2>
-    <p>Start an adaptive food web from any populations, any diets and any adaptation speed, and it ends up in the same place, with the same species at the same numbers. The end state is set by the web itself (who's in it, who can eat whom, how fast each grows), not by its history.</p>
-    <p>In one special case, where predators turn everything they eat into growth, we can prove it. We found a Lyapunov function: a quantity that only ever goes down as the community changes, so the system acts like a ball rolling into a single valley. The idea builds on a 1999 method by Boukal and Křivan. For more realistic cases we don't have a proof yet, but every web we tested in Kondoh's setup behaved the same way, and an independent check of the maths and code agreed.</p>
+    <p>Start an adaptive food web from any populations, any diets and any adaptation speed, and it reaches the same end state: the same species, at the same densities. The end state is set by the web itself (which species it contains, who can eat whom, and their growth and feeding rates), not by its history.</p>
+    <p>In the special case where predators convert all the food they eat into growth (<i>e</i> = 1), we can prove this. We found a Lyapunov function: a quantity that only ever decreases as the community changes, so the system behaves like a ball rolling into a single valley. The construction extends one that Boukal and Křivan (1999) used for small predator–prey models. For realistic conversion efficiencies we have no proof yet, but every web we tested with Kondoh's parameters behaved the same way, and an independent check of the mathematics and code confirmed the results.</p>
     <div class="aside">
       <h3>The Lyapunov function</h3>
       <div class="eq">V = Σ<sub>i</sub> <span class="up">(</span> N<sub>i</sub> − N<sub>i</sub><sup>*</sup> ln N<sub>i</sub> <span class="up">)</span> + <span class="up">(</span>1/G<span class="up">)</span> Σ<sub>i</sub> N<sub>i</sub><sup>*</sup> Σ<sub>j</sub> a<sub>ij</sub><sup>*</sup> ln <span class="up">(</span>a<sub>ij</sub><sup>*</sup> / a<sub>ij</sub><span class="up">)</span></div>
-      <p>Starred values are the end state. The first sum is smallest when every population sits at its end value; it's a classic choice going back to Volterra. The second sum measures how far each predator's diet is from its end-state diet. When <i>e</i> = 1, <i>V</i> can only go down as time passes, which is what makes it a Lyapunov function. So the system has to slide to the bottom of the valley, whatever the starting point.</p>
+      <p>Starred values are those at the end state. The first sum is the standard Lyapunov function for Lotka–Volterra communities (Volterra 1931; Goh 1977); it is smallest when every population is at its end value. The second sum is the Kullback–Leibler divergence between each predator's diet and its end-state diet, the standard Lyapunov function for replicator dynamics (Hofbauer &amp; Sigmund 1998), weighted by the predator's end-state density and by 1/<i>G</i>. When <i>e</i> = 1, what a predator gains in each interaction exactly matches what its prey loses, the cross terms cancel, and <i>V</i> can only decrease. Every trajectory therefore ends at the same point.</p>
     </div>
   </section>
 
@@ -206,36 +207,36 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
   <section class="col">
     <span class="tag solid">Solid for Kondoh's setup</span>
     <h2>Flexible diets keep more species</h2>
-    <p>In Kondoh's setup, adaptive webs usually kept every species, while fixed-diet webs lost about 5 to 20 percent. When an adaptive web does lose a species, it's eaten by a specialist with nothing else to eat, which can't switch away.</p>
+    <p>In Kondoh's setup, adaptive webs usually kept every species, while fixed-diet webs lost about 5 to 20 percent. The few species that adaptive webs do lose are prey of predators with no alternative food, which cannot switch away.</p>
   </section>
 
   <section class="wide">
     <figure>
       <div class="scroll"><div class="chart" id="rollcall"></div></div>
       <div class="legend"><span><i class="sq" style="background: var(--fixed)"></i>survives, fixed diets</span><span><i class="sq" style="background: var(--adapt)"></i>survives, adaptive diets</span><span><i class="sq" style="border: 1.5px solid var(--ink-3)"></i>lost</span></div>
-      <figcaption><b>Roll call for one 20-species web</b>, once things have settled, with no extinction line. Fixed diets lose 4 species; adaptive diets keep all 20. Species 18 (ringed) is one of the losses under fixed diets. With adaptive diets it survives, but only just (next figure).</figcaption>
+      <figcaption><b>Roll call for one 20-species web</b> at its end state, with no extinction line. Fixed diets lose 4 species; adaptive diets keep all 20. Species 18 (ringed) is one of the losses under fixed diets. With adaptive diets it survives, but only just (next figure).</figcaption>
     </figure>
   </section>
 
   <section class="col">
     <span class="tag">New, preliminary</span>
     <h2>Speed changes the route, not the destination</h2>
-    <p>So if the end state doesn't depend on speed, what does speed do? It changes the trip. Slow adapters keep eating a dwindling prey for too long, and it crashes to almost nothing before they move on. Then it recovers. The slower the adaptation, the deeper the crash. Fixed-diet webs don't do this: when they lose a species, it's gone for good.</p>
-    <p>The same Lyapunov function <i>V</i> helps explain this. Because <i>V</i> can't go up, no population can fall without limit. But the diet part of <i>V</i> is divided by <i>G</i>, so when adaptation is slow, <i>V</i> starts out large and leaves room for much deeper crashes. The guarantee is loose, but it has the right shape: the crash depth, counted in powers of ten, grows roughly like 1/<i>G</i>.</p>
+    <p>If the end state does not depend on speed, what does speed change? The route. Slow adapters keep feeding on a declining prey for too long, so it crashes to very low numbers before predators move on, and only then recovers. The slower the adaptation, the deeper the crash. Fixed-diet webs show no such crashes: species that survive never fall far, and those that are lost decline to extinction.</p>
+    <p>The Lyapunov function <i>V</i> also limits how deep a crash can be. Since <i>V</i> never increases, the density of a surviving species has a lower bound set by the initial value of <i>V</i>. The diet term of <i>V</i> is divided by <i>G</i>, so slow adaptation gives a large initial <i>V</i> and a weak bound. The bound is far from tight, but it has the observed form: crash depth, in powers of ten, grows roughly in proportion to 1/<i>G</i>.</p>
   </section>
 
   <section class="wide">
     <figure>
       <div class="legend"><span><i style="background: var(--fixed)"></i>fixed diets</span><span><i style="background: var(--fast)"></i>fast adaptation</span><span><i style="background: var(--mid)"></i>medium</span><span><i style="background: var(--slow)"></i>slow</span><span><i style="background: var(--ref)"></i>Kondoh's extinction line</span></div>
       <div class="scroll"><div class="chart" id="dip"></div></div>
-      <figcaption><b>One species, four runs.</b> The numbers of species 18 over time, with all four runs starting from the same point. The scale is logarithmic, and each step down is a factor of 10<sup>100</sup>. With fixed diets the species dies out. With adaptive diets it survives every time, but when adaptation is slow it first drops to about one part in 10<sup>275</sup> of its usual size. Hover to read values.</figcaption>
+      <figcaption><b>One species, four runs.</b> Density of species 18 over time; all four runs start from the same state. The scale is logarithmic, with each gridline a factor of 10<sup>100</sup> lower. With fixed diets the species goes extinct. With adaptive diets it survives every time, but under slow adaptation it first falls to about one part in 10<sup>275</sup> of its usual density. Hover to read values.</figcaption>
     </figure>
   </section>
 
   <section class="col">
     <span class="tag">New, preliminary</span>
     <h2>Kondoh's speed effect comes from the extinction line</h2>
-    <p>Of course, a real population that falls to one part in 10<sup>275</sup> is extinct. Models handle this with an extinction line, and that's where speed comes in. We reran Kondoh's exact setup. With his extinction line, the share of webs keeping every species climbed steeply with adaptation speed, just as he found. Without it, every adaptive web kept every species, at every speed. The destination is the same; the line decides who survives the trip.</p>
+    <p>A real population that fell to one part in 10<sup>275</sup> would be extinct. Models represent this with an extinction line, and that is where adaptation speed matters. We reran Kondoh's setup exactly. With his extinction line, the share of webs that kept every species rose steeply with adaptation speed, as he reported. Without it, every adaptive web kept every species at every speed. The end state is the same either way; the extinction line decides which species survive the journey to it.</p>
   </section>
 
   <section class="wide">
@@ -248,10 +249,10 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
   <section class="col">
     <span class="tag">Known since 1991</span>
     <h2>Adapted diets get narrow</h2>
-    <p>Each predator could eat many prey, but by the end it eats only one or two. The links still in use thin out into a tree, with fewer links than twice the number of species. Matsuda and Namba showed this back in 1991. It matters to us because trees are much easier to do maths on than dense webs.</p>
-    <p>The reason is simple. If a predator splits its effort between two prey, they must pay it equally:</p>
+    <p>Each predator could eat many prey, but at the end state it eats only one or two. The links still in use form a tree-like network (a forest, in graph terms) with fewer links than twice the number of species. Matsuda and Namba (1991) proved this for coevolutionarily stable communities. It matters for theory, because calculations that are hard on dense networks are often exact on trees.</p>
+    <p>The argument is short. If a predator divides its effort between two prey, they must give it the same return:</p>
     <div class="eq">f<sub>ij</sub> N<sub>j</sub> = f<sub>il</sub> N<sub>l</sub></div>
-    <p>Each such tie fixes the ratio of two prey populations. A loop of ties would fix the same ratio twice over, through two different routes, and that almost never works out by chance. So the links in use can't form loops, and a web without loops has fewer links than nodes.</p>
+    <p>Each such tie fixes the ratio of two prey densities. A loop of ties would constrain the same ratio along two different routes, which requires an exact coincidence among the feeding rates. So the links in use form no loops, and a network without loops has fewer links than nodes.</p>
   </section>
 
   <section class="wide">
@@ -264,8 +265,8 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
 
   <section class="col">
     <h2>What about rewiring?</h2>
-    <p>Our wider project also looks at <em>rewiring</em>, where a predator that loses its prey adds a new species to its diet (as in Gilljam and colleagues, 2015). Does that break the one-valley picture?</p>
-    <p>Gaining and losing links isn't the issue. Adaptive predators already drop links, by putting no effort into them, and pick them back up later, and the web still has one end state. What matters is how the choice gets made. Adaptation keeps every option open and keeps revising. Rewiring makes a one-off choice when something triggers it, and sticks with it. That gives the web a memory of the order things happened in, so different runs can end differently. An extinction line does the same thing: a species removed during a crash never comes back.</p>
+    <p>Our wider project also studies <em>rewiring</em>, in which a predator that loses its prey adds a new species to its diet (Gilljam et al. 2015). Does rewiring break the one-valley picture?</p>
+    <p>Gaining and losing links is not the problem in itself. Adaptive predators already drop links, by putting no effort into them, and can take them up again later, and the web still has a single end state. The difference lies in how choices are made. Continuous adaptation keeps every option open and keeps revising. Rewiring makes a one-off choice when a trigger fires, and keeps it. The web then retains a memory of the order in which events happened, so different runs can end differently. An extinction line has the same effect: a species removed during a crash never returns.</p>
   </section>
 
   <section class="wide">
@@ -306,7 +307,7 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
         <text class="fig-text" x="810" y="219" text-anchor="middle">end B</text>
       </svg>
       </div>
-      <figcaption><b>Where history dependence comes from.</b> Which prey looks best depends on exactly when the trigger fires, so runs that differ only in timing can lock in different choices and end up in different places. Our single end state is where rewiring would go if it were continuous and reversible, which makes it a handy yardstick for real rewiring.</figcaption>
+      <figcaption><b>Where history dependence comes from.</b> Which prey looks best depends on exactly when the trigger fires, so runs that differ only in timing can lock in different choices and reach different end states. Our single end state is where rewiring would lead if it were continuous and reversible, which makes it a natural reference against which to measure real rewiring.</figcaption>
     </figure>
   </section>
 
@@ -314,13 +315,29 @@ footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3
     <h2>Why it matters</h2>
     <ul class="plain">
       <li>It splits Kondoh's result into two separate effects. Adaptation changes where a food web ends up: more species survive at the end, at any speed. Adaptation speed only changes how the web gets there: slow switching drives species through deep crashes on the way, and in a real population (or a model with an extinction line) those crashes are permanent losses. So whether adaptation actually saves species depends on how fast predators switch compared with how fast populations change.</li>
-      <li>Since the end state is set by the web, we should be able to calculate it from a few summary numbers, without simulating. That has been done for fixed diets. Doing it for adaptive diets is our next step.</li>
+      <li>Because the end state is set by the web, it should be possible to calculate it from a few summary statistics of the web, without simulation. Such calculations exist for food webs with fixed interactions (Bunin 2017; Barbier et al. 2018). Extending them to adaptive diets is our next step.</li>
     </ul>
     <h2>What we haven't shown yet</h2>
     <ul class="plain">
-      <li>Here every species can grow without prey, which is why nearly all survive. We're now testing webs where some species need prey to live.</li>
-      <li>Some results rest on a few dozen webs. Bigger runs, with hundreds of webs and up to 500 species, are going now.</li>
-      <li>We haven't finished checking the literature, so we're not claiming anything is new yet.</li>
+      <li>In the setup used here, every species can grow without prey, which is why nearly all survive. We are now testing webs in which some species need prey to persist.</li>
+      <li>Some results rest on a few dozen webs. Larger runs, with hundreds of webs of up to 500 species, are in progress.</li>
+      <li>We have not finished checking the literature, so we make no claim of novelty yet.</li>
+    </ul>
+  </section>
+
+  <section class="col refs">
+    <h2>References</h2>
+    <ul class="plain">
+      <li>Barbier, M., Arnoldi, J.-F., Bunin, G. &amp; Loreau, M. (2018). Generic assembly patterns in complex ecological communities. <i>PNAS</i> 115, 2156–2161.</li>
+      <li>Boukal, D. S. &amp; Křivan, V. (1999). Lyapunov functions for Lotka–Volterra predator–prey models with optimal foraging behavior. <i>Journal of Mathematical Biology</i> 39, 493–517.</li>
+      <li>Bunin, G. (2017). Ecological communities with Lotka–Volterra dynamics. <i>Physical Review E</i> 95, 042414.</li>
+      <li>Gilljam, D., Curtsdotter, A. &amp; Ebenman, B. (2015). Adaptive rewiring aggravates the effects of species loss in ecosystems. <i>Nature Communications</i> 6, 8412.</li>
+      <li>Goh, B. S. (1977). Global stability in many-species systems. <i>American Naturalist</i> 111, 135–143.</li>
+      <li>Hofbauer, J. &amp; Sigmund, K. (1998). <i>Evolutionary Games and Population Dynamics</i>. Cambridge University Press.</li>
+      <li>Kondoh, M. (2003). Foraging adaptation and the relationship between food-web complexity and stability. <i>Science</i> 299, 1388–1391.</li>
+      <li>Matsuda, H. &amp; Namba, T. (1991). Food web graph of a coevolutionarily stable community. <i>Ecology</i> 72, 267–276.</li>
+      <li>May, R. M. (1972). Will a large complex system be stable? <i>Nature</i> 238, 413–414.</li>
+      <li>Volterra, V. (1931). <i>Leçons sur la théorie mathématique de la lutte pour la vie</i>. Gauthier-Villars, Paris.</li>
     </ul>
   </section>
 
