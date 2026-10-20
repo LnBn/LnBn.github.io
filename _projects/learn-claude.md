@@ -2,6 +2,7 @@
 layout: page
 title: learn-claude
 description: A personal AI tutor that runs inside Claude Code, with lessons, graded quizzes, textbook courses and exams written into Obsidian notes.
+img: assets/img/projects/learn_claude.png
 importance: 4
 permalink: /projects/learn-claude/
 ---
