@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Other projects beyond my academic work. Write-ups and code done with AI assistance.
+description: Some other projects, may or may not be related to my academic work. Write-ups and code done with AI assistance.
 nav: true
 nav_order: 3
 horizontal: false
