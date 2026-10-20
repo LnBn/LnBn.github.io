@@ -387,7 +387,7 @@ const DATA = {"traj18":{"static":[[0.01,-1.25],[0.0113,-1.25],[0.0128,-1.25],[0.
         const g = el('g', {}, s);
         el('rect', { x, y, width: cell, height: cell, rx: 4, fill: alive ? col : 'transparent', stroke: alive ? col : 'var(--ink-3)', 'stroke-width': 1.5 }, g);
         if (!alive) { el('line', { x1: x + 9, y1: y + 9, x2: x + cell - 9, y2: y + cell - 9, stroke: 'var(--ink-3)', 'stroke-width': 1.5 }, g); el('line', { x1: x + cell - 9, y1: y + 9, x2: x + 9, y2: y + cell - 9, stroke: 'var(--ink-3)', 'stroke-width': 1.5 }, g); }
-        else txt(g, x + cell / 2, y + cell / 2 + 4, d.id, 'fig-text', 'middle').setAttribute('style', 'fill: var(--paper)');
+        else txt(g, x + cell / 2, y + cell / 2 + 4, d.id, 'fig-text', 'middle').setAttribute('style', 'fill: #fff; stroke: none; font-weight: 500');
         if (d.id === 18) el('rect', { x: x - 4, y: y - 4, width: cell + 8, height: cell + 8, rx: 7, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.5 }, g);
         g.addEventListener('mousemove', (ev) => tip.show(`<div class="h">Species ${d.id}, ${name.toLowerCase()}</div>${alive ? 'survives' : 'lost'} · can eat ${d.k} species`, ev));
         g.addEventListener('mouseleave', tip.hide);
