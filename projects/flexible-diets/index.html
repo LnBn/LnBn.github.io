@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Predators that switch between prey make complex food webs hold together better. An illustrated, plain-language summary of work in progress.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<title>Flexible Diets, Fragile Routes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+a.back { color: var(--adapt); }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+/* Layout: one reading column (~66ch); figures break out to a wider measure; prose and figure alternate down the page. */
+:root {
+  --paper: #f7f8f6; --panel: #eef0ec; --ink: #1c211f; --ink-2: #4d5550; --ink-3: #79817c; --rule: #d9ddd7;
+  --fixed: #eb6834; --adapt: #2a78d6; --fast: #86b6ef; --mid: #2a78d6; --slow: #104281; --ref: #8a918c;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --s-cap: 0.8rem; --s-body: 1.075rem; --s-h3: 1.2rem; --s-h2: 1.6rem; --s-h1: clamp(2.1rem, 5vw, 3.2rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #191b1a; --panel: #222624; --ink: #ecefeb; --ink-2: #b9c0bb; --ink-3: #8c948f; --rule: #343935;
+    --fixed: #d95926; --adapt: #3987e5; --fast: #3987e5; --mid: #86b6ef; --slow: #cde2fb; --ref: #7d857f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #191b1a; --panel: #222624; --ink: #ecefeb; --ink-2: #b9c0bb; --ink-3: #8c948f; --rule: #343935;
+  --fixed: #d95926; --adapt: #3987e5; --fast: #3987e5; --mid: #86b6ef; --slow: #cde2fb; --ref: #7d857f; color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: var(--s-body); line-height: 1.6; }
+.page { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 3rem 5rem; display: flex; flex-direction: column; align-items: center; gap: 2.2rem; }
+.col { width: 100%; max-width: 40rem; display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+.wide { width: 100%; max-width: 60rem; min-width: 0; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: var(--s-h1); font-weight: 700; line-height: 1.05; }
+h2 { font-size: var(--s-h2); font-weight: 700; line-height: 1.15; margin-top: 1.2rem; }
+h3 { font-size: var(--s-h3); font-weight: 500; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-mono); font-size: var(--s-cap); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.standfirst { font-size: 1.2rem; color: var(--ink-2); line-height: 1.5; }
+.byline { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3); }
+.tag { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.15rem 0.45rem; border: 1px solid var(--rule); border-radius: 3px; color: var(--ink-2); align-self: flex-start; }
+.tag.solid { border-color: var(--adapt); color: var(--adapt); }
+figure { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+figure svg { width: 100%; height: auto; display: block; overflow: visible; }
+figcaption { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-2); line-height: 1.55; max-width: 60rem; }
+figcaption b { color: var(--ink); font-weight: 500; }
+.panel { background: var(--panel); border-radius: 6px; padding: 1.2rem; }
+.fig-text { font-family: var(--f-mono); fill: var(--ink-2); font-size: 12px; }
+.fig-text, .fig-strong { paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round; }
+.fig-text.on-panel, .fig-strong.on-panel { stroke: var(--panel); }
+.fig-strong { font-family: var(--f-mono); fill: var(--ink); font-size: 12.5px; font-weight: 500; }
+.fig-title { font-family: var(--f-display); fill: var(--ink); font-size: 15px; font-weight: 500; }
+.chart { position: relative; }
+.tip { position: fixed; pointer-events: none; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; box-shadow: 0 4px 14px rgb(0 0 0 / 0.12); padding: 0.35rem 0.55rem; font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink); white-space: nowrap; z-index: 3; }
+.tip .h { color: var(--ink-3); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+.legend i.sq { width: 10px; height: 10px; border-radius: 2px; }
+.eq { font-family: var(--f-body); font-style: italic; font-size: 1.15rem; background: var(--panel); border-radius: 6px; padding: 0.8rem 1rem; overflow-x: auto; white-space: nowrap; text-align: center; }
+.eq sub, .eq sup { font-size: 0.68em; }
+.eq .up { font-style: normal; }
+.aside { border-left: 3px solid var(--rule); padding-left: 1rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.aside h3 { font-size: var(--s-h3); }
+.callout { border-left: 3px solid var(--adapt); padding: 0.2rem 0 0.2rem 1rem; color: var(--ink-2); }
+ul.plain { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; align-self: flex-start; }
+.seg button { font-family: var(--f-mono); font-size: var(--s-cap); background: transparent; color: var(--ink-2); border: 0; padding: 0.3rem 0.7rem; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg button:focus-visible { outline: 2px solid var(--adapt); outline-offset: 2px; }
+.scroll { overflow-x: auto; overflow-y: hidden; }
+.scroll > svg, .scroll > .chart { min-width: 620px; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1.4rem; }
+footer { font-family: var(--f-mono); font-size: var(--s-cap); color: var(--ink-3); }
+</style>
+</head>
+<body>
+
+<main class="page">
+  <header class="col">
+    <span class="eyebrow">Food-web theory · work in progress · October 2026</span>
+    <h1>Flexible diets, fragile routes</h1>
+    <p class="standfirst">Predators that switch between prey help complex food webs hold together. Our simulations show why, and that the speed of switching matters in a way nobody expected.</p>
+    <p class="byline">Lachlan Burton · a plain-language summary of work in progress on adaptive food webs. Results are preliminary. <a class="back" href="/projects/">Back to projects</a></p>
+  </header>
+
+  <section class="col">
+    <h2>The question</h2>
+    <p>Are complex ecosystems more stable than simple ones, or less? Classic models, going back to Robert May in 1972, say less: more species and more feeding links should make things fragile. Yet real ecosystems are very complex, and they persist.</p>
+    <p>In 2003 Michio Kondoh suggested why. Real predators don't eat from a fixed menu. They shift towards whatever prey is paying off best at the moment. In his simulations, predators that did this made complex food webs more likely to keep all their species.</p>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="scroll">
+      <svg viewBox="0 0 880 300" role="img" aria-label="A predator with a fixed diet splits its effort equally between three prey; an adaptive predator puts most of its effort on the most abundant prey.">
+        <defs>
+          <marker id="ar-fixed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--fixed)"/></marker>
+          <marker id="ar-adapt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--adapt)"/></marker>
+        </defs>
+        <text class="fig-title" x="40" y="26">Fixed diet</text>
+        <text class="fig-text" x="40" y="46">effort split equally, whatever the prey are doing</text>
+        <circle cx="220" cy="88" r="38" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/>
+        <text class="fig-strong on-panel" x="220" y="92" text-anchor="middle">predator</text>
+        <circle cx="100" cy="238" r="34" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <circle cx="220" cy="238" r="22" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <circle cx="340" cy="238" r="12" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <text class="fig-text on-panel" x="100" y="242" text-anchor="middle">common</text>
+        <text class="fig-text" x="220" y="280" text-anchor="middle">medium</text>
+        <text class="fig-text" x="340" y="280" text-anchor="middle">rare</text>
+        <line x1="120" y1="207" x2="193" y2="120" stroke="var(--fixed)" stroke-width="4" marker-end="url(#ar-fixed)"/>
+        <line x1="220" y1="214" x2="220" y2="130" stroke="var(--fixed)" stroke-width="4" marker-end="url(#ar-fixed)"/>
+        <line x1="331" y1="226" x2="246" y2="120" stroke="var(--fixed)" stroke-width="4" marker-end="url(#ar-fixed)"/>
+        <text class="fig-text" x="128" y="160" text-anchor="end">1/3</text>
+        <text class="fig-text" x="232" y="172">1/3</text>
+        <text class="fig-text" x="304" y="160">1/3</text>
+
+        <line x1="440" y1="20" x2="440" y2="290" stroke="var(--rule)"/>
+
+        <text class="fig-title" x="500" y="26">Adaptive diet</text>
+        <text class="fig-text" x="500" y="46">effort moves to the prey that pays best right now</text>
+        <circle cx="680" cy="88" r="38" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/>
+        <text class="fig-strong on-panel" x="680" y="92" text-anchor="middle">predator</text>
+        <circle cx="560" cy="238" r="34" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <circle cx="680" cy="238" r="22" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <circle cx="800" cy="238" r="12" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.5"/>
+        <text class="fig-text on-panel" x="560" y="242" text-anchor="middle">common</text>
+        <text class="fig-text" x="680" y="280" text-anchor="middle">medium</text>
+        <text class="fig-text" x="800" y="280" text-anchor="middle">rare</text>
+        <line x1="580" y1="207" x2="653" y2="120" stroke="var(--adapt)" stroke-width="9" marker-end="url(#ar-adapt)"/>
+        <line x1="680" y1="214" x2="680" y2="130" stroke="var(--adapt)" stroke-width="2.5" marker-end="url(#ar-adapt)"/>
+        <line x1="791" y1="226" x2="706" y2="120" stroke="var(--adapt)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text class="fig-text" x="588" y="160" text-anchor="end">most effort</text>
+        <text class="fig-text" x="692" y="172">some</text>
+        <text class="fig-text" x="764" y="160">almost none</text>
+      </svg>
+      </div>
+      <figcaption><b>How a predator adapts.</b> Line width shows how the predator splits its foraging effort. An adaptive predator moves effort towards the prey that pays best, here the common one. Eating it down makes it pay less, so effort spreads out until all the prey it eats pay about the same. Think of shoppers drifting between checkout queues until the waits even out. The rare prey gets left alone.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <h2>What we did</h2>
+    <p>We built hundreds of random food webs on a computer, with 12 to 500 species, and ran each one two ways: predators that split their effort evenly and never change, and predators that adapt. Then we looked at where each community ends up, and how it gets there.</p>
+    <p>We also ran them with and without an <em>extinction line</em>, a rule that removes any species whose numbers drop below a tiny value. Kondoh used one, as do most food-web models.</p>
+  </section>
+
+  <section class="col">
+    <h2>The model in two equations</h2>
+    <p>For anyone who wants to see the machinery. Each species <i>i</i> has a population <i>N<sub>i</sub></i>, and it changes like this:</p>
+    <div class="eq">dN<sub>i</sub>/dt = N<sub>i</sub> <span class="up">(</span> r<sub>i</sub> − N<sub>i</sub> + e Σ<sub>j</sub> a<sub>ij</sub> f<sub>ij</sub> N<sub>j</sub> − Σ<sub>k</sub> a<sub>ki</sub> f<sub>ki</sub> N<sub>k</sub> <span class="up">)</span></div>
+    <p>Read the bracket left to right. A species grows at its own rate <i>r<sub>i</sub></i>, is held back by crowding (<i>−N<sub>i</sub></i>), gains from what it eats, and loses to whatever eats it. In the gain term, <i>f<sub>ij</sub></i> is how good predator <i>i</i> is at catching prey <i>j</i>, <i>a<sub>ij</sub></i> is the share of its foraging effort spent on <i>j</i>, and <i>e</i> is the fraction of food that turns into new growth. The last term is the same thing seen from the prey's side, summed over its predators <i>k</i>.</p>
+    <p>The second equation is the adaptation rule:</p>
+    <div class="eq">da<sub>ij</sub>/dt = G a<sub>ij</sub> <span class="up">(</span> e f<sub>ij</sub> N<sub>j</sub> − Σ<sub>l</sub> a<sub>il</sub> e f<sub>il</sub> N<sub>l</sub> <span class="up">)</span></div>
+    <p>Here <i>e f<sub>ij</sub> N<sub>j</sub></i> is what prey <i>j</i> currently pays predator <i>i</i> for each unit of effort, and the sum after it is the predator's average return across its whole diet. If a prey pays more than average, effort on it grows; if less, it shrinks. <i>G</i> sets how fast this happens. A fixed diet is just <i>a<sub>ij</sub></i> = 1/<i>k<sub>i</sub></i>, where <i>k<sub>i</sub></i> is the number of prey that <i>i</i> can eat.</p>
+  </section>
+
+  <section class="col">
+    <span class="tag solid">Proven in a special case, seen in every simulation</span>
+    <h2>Each web has one end state</h2>
+    <p>Start an adaptive food web from any populations, any diets and any adaptation speed, and it ends up in the same place, with the same species at the same numbers. The end state is set by the web itself (who's in it, who can eat whom, how fast each grows), not by its history.</p>
+    <p>In one special case, where predators turn everything they eat into growth, we can prove it. We found a Lyapunov function: a quantity that only ever goes down as the community changes, so the system acts like a ball rolling into a single valley. The idea builds on a 1999 method by Boukal and Křivan. For more realistic cases we don't have a proof yet, but every web we tested in Kondoh's setup behaved the same way, and an independent check of the maths and code agreed.</p>
+    <div class="aside">
+      <h3>The Lyapunov function</h3>
+      <div class="eq">V = Σ<sub>i</sub> <span class="up">(</span> N<sub>i</sub> − N<sub>i</sub><sup>*</sup> ln N<sub>i</sub> <span class="up">)</span> + <span class="up">(</span>1/G<span class="up">)</span> Σ<sub>i</sub> N<sub>i</sub><sup>*</sup> Σ<sub>j</sub> a<sub>ij</sub><sup>*</sup> ln <span class="up">(</span>a<sub>ij</sub><sup>*</sup> / a<sub>ij</sub><span class="up">)</span></div>
+      <p>Starred values are the end state. The first sum is smallest when every population sits at its end value; it's a classic choice going back to Volterra. The second sum measures how far each predator's diet is from its end-state diet. When <i>e</i> = 1, <i>V</i> can only go down as time passes, which is what makes it a Lyapunov function. So the system has to slide to the bottom of the valley, whatever the starting point.</p>
+    </div>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="scroll">
+      <svg viewBox="0 0 880 250" role="img" aria-label="Left: one valley, where every starting point rolls to the same bottom. Right: two valleys, where the end depends on the start.">
+        <text class="fig-title" x="40" y="26">One valley: what we find</text>
+        <text class="fig-text" x="40" y="46">every start ends in the same place</text>
+        <path d="M40,90 C130,90 160,215 240,215 C320,215 350,90 420,90" fill="none" stroke="var(--ink-2)" stroke-width="2"/>
+        <circle cx="70" cy="96" r="8" fill="var(--adapt)"/><circle cx="160" cy="170" r="8" fill="var(--adapt)"/><circle cx="385" cy="100" r="8" fill="var(--adapt)"/>
+        <circle cx="240" cy="207" r="9" fill="none" stroke="var(--adapt)" stroke-width="2.5"/>
+        <path d="M84,108 Q150,190 222,204" fill="none" stroke="var(--adapt)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <path d="M370,114 Q320,190 258,204" fill="none" stroke="var(--adapt)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text class="fig-text" x="240" y="240" text-anchor="middle">the end state</text>
+
+        <line x1="440" y1="20" x2="440" y2="240" stroke="var(--rule)"/>
+
+        <text class="fig-title" x="480" y="26">Several valleys: history matters</text>
+        <text class="fig-text" x="480" y="46">where you end depends on where you start</text>
+        <path d="M480,90 C530,90 545,205 595,205 C640,205 650,130 675,130 C700,130 715,205 760,205 C810,205 825,90 860,90" fill="none" stroke="var(--ink-2)" stroke-width="2"/>
+        <circle cx="510" cy="100" r="8" fill="var(--fixed)"/><circle cx="660" cy="133" r="8" fill="var(--fixed)"/><circle cx="690" cy="133" r="8" fill="var(--fixed)"/><circle cx="840" cy="98" r="8" fill="var(--fixed)"/>
+        <circle cx="595" cy="197" r="9" fill="none" stroke="var(--fixed)" stroke-width="2.5"/><circle cx="760" cy="197" r="9" fill="none" stroke="var(--fixed)" stroke-width="2.5"/>
+        <text class="fig-text" x="595" y="240" text-anchor="middle">end state A</text>
+        <text class="fig-text" x="760" y="240" text-anchor="middle">end state B</text>
+      </svg>
+      </div>
+      <figcaption><b>What "set by the web" means.</b> Height stands for a quantity that always goes down. Left: one valley, so every start ends at the same bottom. That's what we see for adaptive webs. Right: two valleys, where the same web can end up in different communities depending on where it starts. This is only a sketch; the real system has one dimension per species.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <span class="tag solid">Solid for Kondoh's setup</span>
+    <h2>Flexible diets keep more species</h2>
+    <p>In Kondoh's setup, adaptive webs usually kept every species, while fixed-diet webs lost about 5 to 20 percent. When an adaptive web does lose a species, it's eaten by a specialist with nothing else to eat, which can't switch away.</p>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="scroll"><div class="chart" id="rollcall"></div></div>
+      <div class="legend"><span><i class="sq" style="background: var(--fixed)"></i>survives, fixed diets</span><span><i class="sq" style="background: var(--adapt)"></i>survives, adaptive diets</span><span><i class="sq" style="border: 1.5px solid var(--ink-3)"></i>lost</span></div>
+      <figcaption><b>Roll call for one 20-species web</b>, once things have settled, with no extinction line. Fixed diets lose 4 species; adaptive diets keep all 20. Species 18 (ringed) is one of the losses under fixed diets. With adaptive diets it survives, but only just (next figure).</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <span class="tag">New, preliminary</span>
+    <h2>Speed changes the route, not the destination</h2>
+    <p>So if the end state doesn't depend on speed, what does speed do? It changes the trip. Slow adapters keep eating a dwindling prey for too long, and it crashes to almost nothing before they move on. Then it recovers. The slower the adaptation, the deeper the crash. Fixed-diet webs don't do this: when they lose a species, it's gone for good.</p>
+    <p>The same Lyapunov function <i>V</i> helps explain this. Because <i>V</i> can't go up, no population can fall without limit. But the diet part of <i>V</i> is divided by <i>G</i>, so when adaptation is slow, <i>V</i> starts out large and leaves room for much deeper crashes. The guarantee is loose, but it has the right shape: the crash depth, counted in powers of ten, grows roughly like 1/<i>G</i>.</p>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="legend"><span><i style="background: var(--fixed)"></i>fixed diets</span><span><i style="background: var(--fast)"></i>fast adaptation</span><span><i style="background: var(--mid)"></i>medium</span><span><i style="background: var(--slow)"></i>slow</span><span><i style="background: var(--ref)"></i>Kondoh's extinction line</span></div>
+      <div class="scroll"><div class="chart" id="dip"></div></div>
+      <figcaption><b>One species, four runs.</b> The numbers of species 18 over time, with all four runs starting from the same point. The scale is logarithmic, and each step down is a factor of 10<sup>100</sup>. With fixed diets the species dies out. With adaptive diets it survives every time, but when adaptation is slow it first drops to about one part in 10<sup>275</sup> of its usual size. Hover to read values.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <span class="tag">New, preliminary</span>
+    <h2>Kondoh's speed effect comes from the extinction line</h2>
+    <p>Of course, a real population that falls to one part in 10<sup>275</sup> is extinct. Models handle this with an extinction line, and that's where speed comes in. We reran Kondoh's exact setup. With his extinction line, the share of webs keeping every species climbed steeply with adaptation speed, just as he found. Without it, every adaptive web kept every species, at every speed. The destination is the same; the line decides who survives the trip.</p>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="scroll"><div class="chart" id="kondoh"></div></div>
+      <figcaption><b>Kondoh's setup: 12 random webs of 20 species.</b> Each square is one web, filled if every species in it survived. Left: species are removed for good below one part in 10<sup>13</sup>, as in Kondoh's study. Right: no extinction line. Fixed-diet webs lose species either way.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <span class="tag">Known since 1991</span>
+    <h2>Adapted diets get narrow</h2>
+    <p>Each predator could eat many prey, but by the end it eats only one or two. The links still in use thin out into a tree, with fewer links than twice the number of species. Matsuda and Namba showed this back in 1991. It matters to us because trees are much easier to do maths on than dense webs.</p>
+    <p>The reason is simple. If a predator splits its effort between two prey, they must pay it equally:</p>
+    <div class="eq">f<sub>ij</sub> N<sub>j</sub> = f<sub>il</sub> N<sub>l</sub></div>
+    <p>Each such tie fixes the ratio of two prey populations. A loop of ties would fix the same ratio twice over, through two different routes, and that almost never works out by chance. So the links in use can't form loops, and a web without loops has fewer links than nodes.</p>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="seg" role="group" aria-label="Links shown" id="netseg"></div>
+      <div class="scroll"><div class="chart" id="network"></div></div>
+      <figcaption><b>The same 20-species web.</b> Faint lines are all the possible feeding links. Blue arrows are the ones still in use at the end, pointing from prey to predator. Hover a species to see its links.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <h2>What about rewiring?</h2>
+    <p>Our wider project also looks at <em>rewiring</em>, where a predator that loses its prey adds a new species to its diet (as in Gilljam and colleagues, 2015). Does that break the one-valley picture?</p>
+    <p>Gaining and losing links isn't the issue. Adaptive predators already drop links, by putting no effort into them, and pick them back up later, and the web still has one end state. What matters is how the choice gets made. Adaptation keeps every option open and keeps revising. Rewiring makes a one-off choice when something triggers it, and sticks with it. That gives the web a memory of the order things happened in, so different runs can end differently. An extinction line does the same thing: a species removed during a crash never comes back.</p>
+  </section>
+
+  <section class="wide">
+    <figure>
+      <div class="scroll">
+      <svg viewBox="0 0 880 270" role="img" aria-label="Continuous adaptation keeps all options open and reaches one end state; discrete rewiring locks in a choice when a trigger fires, so different timings lead to different end states.">
+        <defs>
+          <marker id="ar-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-2)"/></marker>
+        </defs>
+        <text class="fig-title" x="40" y="26">Continuous adaptation</text>
+        <text class="fig-text" x="40" y="46">all options stay open; choices keep being revised</text>
+        <rect x="40" y="110" width="110" height="44" rx="5" fill="var(--panel)" stroke="var(--ink-2)"/>
+        <text class="fig-strong on-panel" x="95" y="137" text-anchor="middle">any start</text>
+        <path d="M150,132 C200,132 210,132 250,132" fill="none" stroke="var(--adapt)" stroke-width="2.5" marker-end="url(#ar-ink)"/>
+        <path d="M250,132 C270,110 290,154 310,132 C330,110 345,150 360,132" fill="none" stroke="var(--adapt)" stroke-width="2.5"/>
+        <text class="fig-text" x="300" y="100" text-anchor="middle">efforts drift</text>
+        <line x1="360" y1="132" x2="384" y2="132" stroke="var(--adapt)" stroke-width="2.5" marker-end="url(#ar-ink)"/>
+        <circle cx="404" cy="132" r="14" fill="none" stroke="var(--adapt)" stroke-width="2.5"/>
+        <text class="fig-text" x="404" y="172" text-anchor="middle">one end</text>
+
+        <line x1="450" y1="20" x2="450" y2="250" stroke="var(--rule)"/>
+
+        <text class="fig-title" x="490" y="26">Discrete rewiring</text>
+        <text class="fig-text" x="490" y="46">a choice is made when a trigger fires, then kept</text>
+        <rect x="490" y="110" width="100" height="44" rx="5" fill="var(--panel)" stroke="var(--ink-2)"/>
+        <text class="fig-strong on-panel" x="540" y="137" text-anchor="middle">a start</text>
+        <line x1="590" y1="132" x2="640" y2="132" stroke="var(--fixed)" stroke-width="2.5"/>
+        <circle cx="648" cy="132" r="7" fill="var(--fixed)"/>
+        <text class="fig-text" x="646" y="84" text-anchor="end">prey lost:</text>
+        <text class="fig-text" x="646" y="98" text-anchor="end">pick a new one</text>
+        <path d="M655,128 C700,100 730,80 790,80" fill="none" stroke="var(--fixed)" stroke-width="2.5" marker-end="url(#ar-ink)"/>
+        <path d="M655,136 C700,164 730,184 790,184" fill="none" stroke="var(--fixed)" stroke-width="2.5" marker-end="url(#ar-ink)"/>
+        <text class="fig-text" x="716" y="64" text-anchor="middle">picks prey X</text>
+        <text class="fig-text" x="716" y="208" text-anchor="middle">picks prey Y</text>
+        <circle cx="810" cy="80" r="14" fill="none" stroke="var(--fixed)" stroke-width="2.5"/>
+        <circle cx="810" cy="184" r="14" fill="none" stroke="var(--fixed)" stroke-width="2.5"/>
+        <text class="fig-text" x="810" y="115" text-anchor="middle">end A</text>
+        <text class="fig-text" x="810" y="219" text-anchor="middle">end B</text>
+      </svg>
+      </div>
+      <figcaption><b>Where history dependence comes from.</b> Which prey looks best depends on exactly when the trigger fires, so runs that differ only in timing can lock in different choices and end up in different places. Our single end state is where rewiring would go if it were continuous and reversible, which makes it a handy yardstick for real rewiring.</figcaption>
+    </figure>
+  </section>
+
+  <section class="col">
+    <h2>Why it matters</h2>
+    <ul class="plain">
+      <li>It splits Kondoh's result into two separate effects. Adaptation changes where a food web ends up: more species survive at the end, at any speed. Adaptation speed only changes how the web gets there: slow switching drives species through deep crashes on the way, and in a real population (or a model with an extinction line) those crashes are permanent losses. So whether adaptation actually saves species depends on how fast predators switch compared with how fast populations change.</li>
+      <li>Since the end state is set by the web, we should be able to calculate it from a few summary numbers, without simulating. That has been done for fixed diets. Doing it for adaptive diets is our next step.</li>
+    </ul>
+    <h2>What we haven't shown yet</h2>
+    <ul class="plain">
+      <li>Here every species can grow without prey, which is why nearly all survive. We're now testing webs where some species need prey to live.</li>
+      <li>Some results rest on a few dozen webs. Bigger runs, with hundreds of webs and up to 500 species, are going now.</li>
+      <li>We haven't finished checking the literature, so we're not claiming anything is new yet.</li>
+    </ul>
+  </section>
+
+  <footer class="col">Model: Kondoh (2003), linear feeding, growth rates uniform on 0 to 0.1, feeding rates uniform on 0 to 1, conversion efficiency 0.15 unless stated. Results as of 20 October 2026; written with AI assistance. <a class="back" href="/projects/">Back to projects</a></footer>
+</main>
+
+<script>
+const DATA = {"traj18":{"static":[[0.01,-1.25],[0.0113,-1.25],[0.0128,-1.25],[0.0145,-1.25],[0.0164,-1.25],[0.0185,-1.25],[0.0209,-1.25],[0.0237,-1.25],[0.0268,-1.25],[0.0303,-1.25],[0.0342,-1.25],[0.0387,-1.25],[0.0438,-1.25],[0.0495,-1.25],[0.056,-1.25],[0.0633,-1.25],[0.0716,-1.25],[0.0809,-1.25],[0.0915,-1.25],[0.1035,-1.25],[0.1171,-1.25],[0.1324,-1.25],[0.1497,-1.25],[0.1693,-1.25],[0.1915,-1.25],[0.2166,-1.25],[0.2449,-1.26],[0.277,-1.26],[0.3132,-1.26],[0.3542,-1.26],[0.4006,-1.26],[0.453,-1.26],[0.5123,-1.26],[0.5793,-1.27],[0.6552,-1.27],[0.7409,-1.27],[0.8379,-1.27],[0.9476,-1.28],[1.0716,-1.28],[1.2119,-1.28],[1.3705,-1.29],[1.5499,-1.29],[1.7528,-1.3],[1.9823,-1.31],[2.2417,-1.31],[2.5352,-1.32],[2.867,-1.33],[3.2423,-1.34],[3.6667,-1.35],[4.1466,-1.36],[4.6894,-1.38],[5.3032,-1.39],[5.9974,-1.41],[6.7824,-1.43],[7.6702,-1.45],[8.6742,-1.47],[9.8096,-1.49],[11.0937,-1.52],[12.5458,-1.54],[14.188,-1.57],[16.0451,-1.6],[18.1453,-1.64],[20.5205,-1.67],[23.2065,-1.71],[26.2441,-1.75],[29.6793,-1.79],[33.5642,-1.83],[37.9576,-1.88],[42.9261,-1.93],[48.5449,-1.98],[54.8992,-2.03],[62.0852,-2.09],[70.2119,-2.14],[79.4023,-2.21],[89.7957,-2.27],[101.55,-2.34],[114.842,-2.41],[129.874,-2.48],[146.874,-2.56],[166.099,-2.64],[187.841,-2.73],[212.428,-2.83],[240.234,-2.93],[271.679,-3.04],[307.241,-3.16],[347.457,-3.3],[392.938,-3.44],[444.372,-3.6],[502.538,-3.77],[568.317,-3.96],[642.707,-4.18],[726.835,-4.42],[821.974,-4.68],[929.567,-4.99],[1051.24,-5.32],[1188.84,-5.7],[1344.46,-6.13],[1520.44,-6.61],[1719.46,-7.16],[1944.53,-7.77],[2199.06,-8.46],[2486.91,-9.24],[2812.43,-10.13],[3180.56,-11.12],[3596.88,-12.25],[4067.7,-13.52],[4600.14,-14.96],[5202.28,-16.58],[5883.23,-18.42],[6653.32,-20.5],[7524.21,-22.84],[8509.09,-25.5],[9622.89,-28.5],[10882.5,-31.9],[12306.9,-35.74],[13917.9,-40.09],[15739.6,-45.0],[17799.9,-50.55],[20129.8,-56.83],[22764.7,-63.94],[25744.5,-71.97],[29114.3,-81.06],[32925.3,-91.34],[37235.0,-102.96],[42108.9,-116.1],[47620.8,-130.96],[53854.1,-147.77],[60903.3,-166.77],[68875.3,-188.27],[77890.7,-212.58],[88086.3,-240.07],[99616.3,-271.16],[112656.0,-306.32],[127402.0,-320],[144078.0,-320],[162937.0,-320],[184265.0,-320],[208384.0,-320],[235661.0,-320],[266508.0,-320],[301392.0,-320],[340843.0,-320],[385458.0,-320],[435912.0,-320],[492971.0,-320],[557499.0,-320],[630472.0,-320],[712998.0,-320],[806326.0,-320],[911871.0,-320],[1000000.0,-320]],"0.02":[[0.01,-1.25],[0.0113,-1.25],[0.0128,-1.25],[0.0145,-1.25],[0.0164,-1.25],[0.0185,-1.25],[0.0209,-1.25],[0.0237,-1.25],[0.0268,-1.25],[0.0303,-1.25],[0.0342,-1.25],[0.0387,-1.25],[0.0438,-1.25],[0.0495,-1.25],[0.056,-1.25],[0.0633,-1.25],[0.0716,-1.25],[0.0809,-1.25],[0.0915,-1.25],[0.1035,-1.25],[0.1171,-1.25],[0.1324,-1.25],[0.1497,-1.25],[0.1693,-1.25],[0.1915,-1.25],[0.2166,-1.25],[0.2449,-1.26],[0.277,-1.26],[0.3132,-1.26],[0.3542,-1.26],[0.4006,-1.26],[0.453,-1.26],[0.5123,-1.26],[0.5793,-1.27],[0.6552,-1.27],[0.7409,-1.27],[0.8379,-1.27],[0.9476,-1.28],[1.0716,-1.28],[1.2119,-1.28],[1.3705,-1.29],[1.5499,-1.29],[1.7528,-1.3],[1.9823,-1.31],[2.2417,-1.31],[2.5352,-1.32],[2.867,-1.33],[3.2423,-1.34],[3.6667,-1.35],[4.1466,-1.36],[4.6894,-1.38],[5.3032,-1.39],[5.9974,-1.41],[6.7824,-1.43],[7.6702,-1.45],[8.6742,-1.47],[9.8096,-1.49],[11.0937,-1.52],[12.5458,-1.54],[14.188,-1.57],[16.0451,-1.6],[18.1453,-1.64],[20.5205,-1.67],[23.2065,-1.71],[26.2441,-1.75],[29.6793,-1.79],[33.5642,-1.83],[37.9576,-1.88],[42.9261,-1.93],[48.5449,-1.98],[54.8992,-2.03],[62.0852,-2.09],[70.2119,-2.15],[79.4023,-2.21],[89.7957,-2.27],[101.55,-2.34],[114.842,-2.41],[129.874,-2.48],[146.874,-2.56],[166.099,-2.64],[187.841,-2.73],[212.428,-2.83],[240.234,-2.93],[271.679,-3.04],[307.241,-3.16],[347.457,-3.3],[392.938,-3.44],[444.372,-3.59],[502.538,-3.77],[568.317,-3.96],[642.707,-4.17],[726.835,-4.41],[821.974,-4.67],[929.567,-4.97],[1051.24,-5.29],[1188.84,-5.66],[1344.46,-6.08],[1520.44,-6.54],[1719.46,-7.06],[1944.53,-7.65],[2199.06,-8.3],[2486.91,-9.04],[2812.43,-9.87],[3180.56,-10.8],[3596.88,-11.87],[4067.7,-13.08],[4600.14,-14.46],[5202.28,-16.04],[5883.23,-17.83],[6653.32,-19.86],[7524.21,-22.17],[8509.09,-24.79],[9622.89,-27.77],[10882.5,-31.16],[12306.9,-35.0],[13917.9,-39.36],[15739.6,-44.31],[17799.9,-49.93],[20129.8,-56.29],[22764.7,-63.5],[25744.5,-71.65],[29114.3,-80.88],[32925.3,-91.34],[37235.0,-103.2],[42108.9,-116.58],[47620.8,-131.21],[53854.1,-147.06],[60903.3,-164.07],[68875.3,-181.86],[77890.7,-200.03],[88086.3,-218.09],[99616.3,-235.35],[112656.0,-250.89],[127402.0,-263.58],[144078.0,-272.03],[158003.0,-274.59],[162937.0,-274.58],[184265.0,-269.27],[208384.0,-253.86],[235661.0,-225.76],[266508.0,-182.02],[301392.0,-119.34],[340843.0,-34.05],[385458.0,-2.59],[435912.0,-2.86],[492971.0,-2.92],[557499.0,-2.93],[630472.0,-2.92],[712998.0,-2.92],[806326.0,-2.92],[911871.0,-2.92],[1000000.0,-2.92]],"0.25":[[0.01,-1.25],[0.0113,-1.25],[0.0128,-1.25],[0.0145,-1.25],[0.0164,-1.25],[0.0185,-1.25],[0.0209,-1.25],[0.0237,-1.25],[0.0268,-1.25],[0.0303,-1.25],[0.0342,-1.25],[0.0387,-1.25],[0.0438,-1.25],[0.0495,-1.25],[0.056,-1.25],[0.0633,-1.25],[0.0716,-1.25],[0.0809,-1.25],[0.0915,-1.25],[0.1035,-1.25],[0.1171,-1.25],[0.1324,-1.25],[0.1497,-1.25],[0.1693,-1.25],[0.1915,-1.25],[0.2166,-1.25],[0.2449,-1.26],[0.277,-1.26],[0.3132,-1.26],[0.3542,-1.26],[0.4006,-1.26],[0.453,-1.26],[0.5123,-1.26],[0.5793,-1.27],[0.6552,-1.27],[0.7409,-1.27],[0.8379,-1.27],[0.9476,-1.28],[1.0716,-1.28],[1.2119,-1.28],[1.3705,-1.29],[1.5499,-1.29],[1.7528,-1.3],[1.9823,-1.31],[2.2417,-1.31],[2.5352,-1.32],[2.867,-1.33],[3.2423,-1.34],[3.6667,-1.35],[4.1466,-1.36],[4.6894,-1.38],[5.3032,-1.39],[5.9974,-1.41],[6.7824,-1.43],[7.6702,-1.45],[8.6742,-1.47],[9.8096,-1.49],[11.0937,-1.52],[12.5458,-1.54],[14.188,-1.57],[16.0451,-1.6],[18.1453,-1.64],[20.5205,-1.67],[23.2065,-1.71],[26.2441,-1.75],[29.6793,-1.79],[33.5642,-1.84],[37.9576,-1.88],[42.9261,-1.93],[48.5449,-1.98],[54.8992,-2.03],[62.0852,-2.09],[70.2119,-2.15],[79.4023,-2.21],[89.7957,-2.27],[101.55,-2.34],[114.842,-2.41],[129.874,-2.49],[146.874,-2.57],[166.099,-2.65],[187.841,-2.74],[212.428,-2.84],[240.234,-2.94],[271.679,-3.05],[307.241,-3.17],[347.457,-3.3],[392.938,-3.44],[444.372,-3.6],[502.538,-3.76],[568.317,-3.95],[642.707,-4.15],[726.835,-4.38],[821.974,-4.64],[929.567,-4.94],[1051.24,-5.28],[1188.84,-5.67],[1344.46,-6.12],[1520.44,-6.63],[1719.46,-7.22],[1944.53,-7.88],[2199.06,-8.64],[2486.91,-9.49],[2812.43,-10.46],[3180.56,-11.54],[3596.88,-12.73],[4067.7,-14.04],[4600.14,-15.45],[5202.28,-16.95],[5883.23,-18.5],[6653.32,-20.07],[7524.21,-21.61],[8509.09,-23.06],[9622.89,-24.32],[10882.5,-25.3],[12306.9,-25.87],[13087.6,-25.96],[13917.9,-25.89],[15739.6,-25.17],[17799.9,-23.52],[20129.8,-20.72],[22764.7,-16.51],[25744.5,-10.61],[29114.3,-2.85],[32925.3,-2.69],[37235.0,-2.91],[42108.9,-2.93],[47620.8,-2.93],[53854.1,-2.92],[60903.3,-2.92],[68875.3,-2.92],[77890.7,-2.92],[88086.3,-2.92],[99616.3,-2.91],[112656.0,-2.91],[127402.0,-2.91],[144078.0,-2.91],[162937.0,-2.91],[184265.0,-2.91],[208384.0,-2.91],[235661.0,-2.91],[266508.0,-2.91],[301392.0,-2.91],[340843.0,-2.91],[385458.0,-2.91],[435912.0,-2.91],[492971.0,-2.91],[557499.0,-2.91],[630472.0,-2.91],[712998.0,-2.91],[806326.0,-2.91],[911871.0,-2.91],[1000000.0,-2.91]],"2.5":[[0.01,-1.25],[0.0113,-1.25],[0.0128,-1.25],[0.0145,-1.25],[0.0164,-1.25],[0.0185,-1.25],[0.0209,-1.25],[0.0237,-1.25],[0.0268,-1.25],[0.0303,-1.25],[0.0342,-1.25],[0.0387,-1.25],[0.0438,-1.25],[0.0495,-1.25],[0.056,-1.25],[0.0633,-1.25],[0.0716,-1.25],[0.0809,-1.25],[0.0915,-1.25],[0.1035,-1.25],[0.1171,-1.25],[0.1324,-1.25],[0.1497,-1.25],[0.1693,-1.25],[0.1915,-1.25],[0.2166,-1.25],[0.2449,-1.26],[0.277,-1.26],[0.3132,-1.26],[0.3542,-1.26],[0.4006,-1.26],[0.453,-1.26],[0.5123,-1.26],[0.5793,-1.27],[0.6552,-1.27],[0.7409,-1.27],[0.8379,-1.27],[0.9476,-1.28],[1.0716,-1.28],[1.2119,-1.28],[1.3705,-1.29],[1.5499,-1.29],[1.7528,-1.3],[1.9823,-1.31],[2.2417,-1.31],[2.5352,-1.32],[2.867,-1.33],[3.2423,-1.34],[3.6667,-1.35],[4.1466,-1.37],[4.6894,-1.38],[5.3032,-1.39],[5.9974,-1.41],[6.7824,-1.43],[7.6702,-1.45],[8.6742,-1.47],[9.8096,-1.49],[11.0937,-1.52],[12.5458,-1.55],[14.188,-1.58],[16.0451,-1.61],[18.1453,-1.64],[20.5205,-1.68],[23.2065,-1.72],[26.2441,-1.76],[29.6793,-1.8],[33.5642,-1.85],[37.9576,-1.9],[42.9261,-1.95],[48.5449,-2.0],[54.8992,-2.06],[62.0852,-2.12],[70.2119,-2.19],[79.4023,-2.25],[89.7957,-2.33],[101.55,-2.4],[114.842,-2.48],[129.874,-2.57],[146.874,-2.67],[166.099,-2.77],[187.841,-2.88],[212.428,-3.01],[240.234,-3.14],[271.679,-3.28],[307.241,-3.44],[347.457,-3.61],[392.938,-3.8],[444.372,-4.01],[502.538,-4.23],[568.317,-4.48],[642.707,-4.73],[726.835,-5.0],[821.974,-5.27],[929.567,-5.53],[1051.24,-5.76],[1188.84,-5.96],[1344.46,-6.11],[1520.44,-6.17],[1567.93,-6.17],[1719.46,-6.14],[1944.53,-5.98],[2199.06,-5.67],[2486.91,-5.17],[2812.43,-4.45],[3180.56,-3.51],[3596.88,-2.61],[4067.7,-2.6],[4600.14,-3.01],[5202.28,-3.15],[5883.23,-2.95],[6653.32,-2.86],[7524.21,-2.94],[8509.09,-2.92],[9622.89,-2.91],[10882.5,-2.92],[12306.9,-2.91],[13917.9,-2.91],[15739.6,-2.91],[17799.9,-2.91],[20129.8,-2.91],[22764.7,-2.91],[25744.5,-2.91],[29114.3,-2.91],[32925.3,-2.91],[37235.0,-2.91],[42108.9,-2.91],[47620.8,-2.91],[53854.1,-2.91],[60903.3,-2.91],[68875.3,-2.91],[77890.7,-2.91],[88086.3,-2.91],[99616.3,-2.91],[112656.0,-2.91],[127402.0,-2.91],[144078.0,-2.91],[162937.0,-2.91],[184265.0,-2.91],[208384.0,-2.91],[235661.0,-2.91],[266508.0,-2.91],[301392.0,-2.91],[340843.0,-2.91],[385458.0,-2.91],[435912.0,-2.91],[492971.0,-2.91],[557499.0,-2.91],[630472.0,-2.91],[712998.0,-2.91],[806326.0,-2.91],[911871.0,-2.91],[1000000.0,-2.91]]},"kondoh":[{"G":0.0,"thr":0,"nothr":0,"n":12},{"G":0.0025,"thr":1,"nothr":12,"n":12},{"G":0.025,"thr":2,"nothr":12,"n":12},{"G":0.25,"thr":11,"nothr":12,"n":12}],"net":{"species":[{"id":1,"adaptive":true,"static":true,"k":6},{"id":2,"adaptive":true,"static":false,"k":7},{"id":3,"adaptive":true,"static":true,"k":5},{"id":4,"adaptive":true,"static":false,"k":6},{"id":5,"adaptive":true,"static":true,"k":7},{"id":6,"adaptive":true,"static":false,"k":2},{"id":7,"adaptive":true,"static":true,"k":4},{"id":8,"adaptive":true,"static":true,"k":3},{"id":9,"adaptive":true,"static":true,"k":1},{"id":10,"adaptive":true,"static":true,"k":5},{"id":11,"adaptive":true,"static":true,"k":4},{"id":12,"adaptive":true,"static":true,"k":3},{"id":13,"adaptive":true,"static":true,"k":6},{"id":14,"adaptive":true,"static":true,"k":2},{"id":15,"adaptive":true,"static":true,"k":2},{"id":16,"adaptive":true,"static":true,"k":2},{"id":17,"adaptive":true,"static":true,"k":3},{"id":18,"adaptive":true,"static":false,"k":3},{"id":19,"adaptive":true,"static":true,"k":2},{"id":20,"adaptive":true,"static":true,"k":4}],"links":[{"c":1,"p":3,"used":false},{"c":4,"p":1,"used":false},{"c":1,"p":5,"used":true},{"c":1,"p":9,"used":false},{"c":1,"p":10,"used":false},{"c":1,"p":12,"used":false},{"c":13,"p":1,"used":true},{"c":1,"p":17,"used":false},{"c":18,"p":1,"used":false},{"c":5,"p":2,"used":false},{"c":6,"p":2,"used":true},{"c":2,"p":9,"used":false},{"c":12,"p":2,"used":false},{"c":2,"p":13,"used":false},{"c":2,"p":14,"used":false},{"c":2,"p":15,"used":false},{"c":2,"p":16,"used":false},{"c":2,"p":17,"used":false},{"c":2,"p":20,"used":true},{"c":3,"p":6,"used":true},{"c":7,"p":3,"used":true},{"c":3,"p":9,"used":false},{"c":10,"p":3,"used":true},{"c":3,"p":11,"used":false},{"c":3,"p":14,"used":true},{"c":3,"p":19,"used":true},{"c":4,"p":5,"used":true},{"c":7,"p":4,"used":false},{"c":4,"p":8,"used":false},{"c":4,"p":10,"used":false},{"c":11,"p":4,"used":false},{"c":4,"p":12,"used":false},{"c":4,"p":14,"used":false},{"c":16,"p":4,"used":true},{"c":5,"p":6,"used":false},{"c":5,"p":8,"used":true},{"c":5,"p":10,"used":false},{"c":5,"p":12,"used":false},{"c":5,"p":13,"used":false},{"c":15,"p":5,"used":false},{"c":5,"p":19,"used":false},{"c":10,"p":6,"used":false},{"c":13,"p":6,"used":false},{"c":14,"p":6,"used":true},{"c":6,"p":18,"used":false},{"c":7,"p":8,"used":true},{"c":12,"p":7,"used":true},{"c":7,"p":16,"used":false},{"c":18,"p":7,"used":false},{"c":8,"p":11,"used":true},{"c":8,"p":13,"used":false},{"c":8,"p":14,"used":true},{"c":19,"p":8,"used":false},{"c":10,"p":9,"used":false},{"c":11,"p":9,"used":false},{"c":12,"p":9,"used":false},{"c":9,"p":19,"used":true},{"c":13,"p":10,"used":false},{"c":10,"p":15,"used":false},{"c":10,"p":16,"used":true},{"c":17,"p":10,"used":true},{"c":20,"p":10,"used":true},{"c":11,"p":13,"used":false},{"c":11,"p":17,"used":true},{"c":13,"p":12,"used":true},{"c":18,"p":12,"used":true},{"c":19,"p":12,"used":true},{"c":13,"p":14,"used":false},{"c":15,"p":13,"used":true},{"c":13,"p":20,"used":false},{"c":14,"p":15,"used":true},{"c":17,"p":14,"used":false},{"c":20,"p":15,"used":false},{"c":17,"p":16,"used":true},{"c":16,"p":18,"used":true},{"c":20,"p":16,"used":false},{"c":20,"p":17,"used":false}]},"min18":{"0.02":-274.64}};
+(function () {
+  const css = (v) => `var(${v})`;
+  const sup = (n) => String(n).replace(/[-0-9]/g, (c) => '⁻⁰¹²³⁴⁵⁶⁷⁸⁹'['-0123456789'.indexOf(c)]);
+  const pow = (e) => e === 0 ? '1' : `10${sup(e)}`;
+  const NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); parent && parent.appendChild(n); return n; }
+  function txt(parent, x, y, s, cls, anchor) { const t = el('text', { x, y, class: cls || 'fig-text' }, parent); if (anchor) t.setAttribute('text-anchor', anchor); t.textContent = s; return t; }
+  function svgFor(box, W, H, label) { box.replaceChildren(); const s = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': label }, box); return s; }
+  const TIP = document.createElement('div'); TIP.className = 'tip'; TIP.hidden = true; document.body.appendChild(TIP);
+  function tipFor() {
+    return {
+      show(html, ev) {
+        TIP.hidden = false; TIP.innerHTML = html;
+        const vw = document.documentElement.clientWidth, w = TIP.offsetWidth, h = TIP.offsetHeight;
+        let x = ev.clientX + 14, y = ev.clientY - h - 10;
+        if (x + w > vw - 8) x = ev.clientX - w - 14;
+        if (y < 8) y = ev.clientY + 16;
+        TIP.style.left = `${Math.max(8, x)}px`; TIP.style.top = `${y}px`;
+      },
+      hide() { TIP.hidden = true; }
+    };
+  }
+  window.addEventListener('scroll', () => { TIP.hidden = true; }, { passive: true });
+
+  // Roll call
+  (function () {
+    const box = document.getElementById('rollcall'); const sp = DATA.net.species;
+    const W = 880, cell = 30, gap = 4, left = 170, H = 2 * (cell + 24) + 10;
+    const s = svgFor(box, W, H, 'Fixed diets: 16 of 20 species survive. Adaptive diets: all 20 survive.');
+    const tip = tipFor(box);
+    [['Fixed diets', 'static', 'var(--fixed)'], ['Adaptive diets', 'adaptive', 'var(--adapt)']].forEach(([name, key, col], r) => {
+      const y = 10 + r * (cell + 24);
+      const n = sp.filter((d) => d[key]).length;
+      txt(s, 0, y + cell / 2 + 4, name, 'fig-strong');
+      txt(s, 0, y + cell / 2 + 20, `${n} of ${sp.length} survive`);
+      sp.forEach((d, i) => {
+        const x = left + i * (cell + gap);
+        const alive = d[key];
+        const g = el('g', {}, s);
+        el('rect', { x, y, width: cell, height: cell, rx: 4, fill: alive ? col : 'transparent', stroke: alive ? col : 'var(--ink-3)', 'stroke-width': 1.5 }, g);
+        if (!alive) { el('line', { x1: x + 9, y1: y + 9, x2: x + cell - 9, y2: y + cell - 9, stroke: 'var(--ink-3)', 'stroke-width': 1.5 }, g); el('line', { x1: x + cell - 9, y1: y + 9, x2: x + 9, y2: y + cell - 9, stroke: 'var(--ink-3)', 'stroke-width': 1.5 }, g); }
+        else txt(g, x + cell / 2, y + cell / 2 + 4, d.id, 'fig-text', 'middle').setAttribute('style', 'fill: var(--paper)');
+        if (d.id === 18) el('rect', { x: x - 4, y: y - 4, width: cell + 8, height: cell + 8, rx: 7, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.5 }, g);
+        g.addEventListener('mousemove', (ev) => tip.show(`<div class="h">Species ${d.id}, ${name.toLowerCase()}</div>${alive ? 'survives' : 'lost'} · can eat ${d.k} species`, ev));
+        g.addEventListener('mouseleave', tip.hide);
+      });
+    });
+  })();
+
+  // The dip
+  (function () {
+    const box = document.getElementById('dip');
+    const runs = [['static', 'Fixed diets', 'var(--fixed)'], ['2.5', 'Fast adaptation', 'var(--fast)'], ['0.25', 'Medium', 'var(--mid)'], ['0.02', 'Slow', 'var(--slow)']];
+    const W = 880, H = 380, m = { l: 74, r: 190, t: 34, b: 44 };
+    const s = svgFor(box, W, H, 'Species 18 goes extinct with fixed diets; with adaptive diets it survives, after dipping to about ten to the minus 275 at slow adaptation.');
+    const tip = tipFor(box);
+    const x = (t) => m.l + (Math.log10(t) + 2) / 8 * (W - m.l - m.r);
+    const y = (v) => m.t + (-v) / 300 * (H - m.t - m.b);
+    [0, -100, -200, -300].forEach((v) => { el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: 'var(--rule)' }, s); txt(s, m.l - 8, y(v) + 4, pow(v), 'fig-text', 'end'); });
+    [[-2, '0.01'], [0, '1'], [2, '100'], [4, '10 000'], [6, '1 000 000']].forEach(([e, lab]) => txt(s, x(10 ** e), H - m.b + 18, lab, 'fig-text', 'middle'));
+    txt(s, (m.l + W - m.r) / 2, H - 6, 'time (model units, logarithmic)', 'fig-text', 'middle');
+    txt(s, 0, 14, 'population (log scale)', 'fig-text');
+    el('line', { x1: m.l, x2: W - m.r, y1: y(-13), y2: y(-13), stroke: 'var(--ref)', 'stroke-width': 1.5, 'stroke-dasharray': '5 4' }, s);
+    txt(s, W - m.r + 8, y(-13) + 16, `extinction line, ${pow(-13)}`);
+    const series = runs.map(([k, name, col]) => ({ name, col, pts: DATA.traj18[k] }));
+    series.forEach((ser) => {
+      const d = ser.pts.map((p, i) => `${i ? 'L' : 'M'}${x(p[0]).toFixed(1)},${y(Math.max(p[1], -300)).toFixed(1)}`).join('');
+      el('path', { d, fill: 'none', stroke: ser.col, 'stroke-width': 2.2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, s);
+    });
+    // direct labels
+    const slow = series[3].pts, lo = slow.reduce((a, b) => (b[1] < a[1] ? b : a));
+    el('circle', { cx: x(lo[0]), cy: y(lo[1]), r: 4.5, fill: 'var(--slow)', stroke: 'var(--paper)', 'stroke-width': 2 }, s);
+    const slowLab = `slow: falls to about ${pow(Math.round(lo[1]))}, then recovers`;
+    const toLeft = x(lo[0]) > (m.l + W - m.r) / 2;
+    txt(s, x(lo[0]) + (toLeft ? -10 : 10), y(lo[1]) - 10, slowLab, 'fig-strong', toLeft ? 'end' : 'start');
+    txt(s, W - m.r + 8, y(-300) + 4, 'fixed diets: extinct');
+    txt(s, W - m.r + 8, y(0) - 6, 'adaptive runs: all survive');
+    const hair = el('line', { y1: m.t, y2: H - m.b, stroke: 'var(--ink-3)', 'stroke-width': 1 }, s); hair.style.display = 'none';
+    const hit = el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: 'transparent' }, s);
+    hit.addEventListener('mousemove', (ev) => {
+      const pt = s.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY; const p = pt.matrixTransform(s.getScreenCTM().inverse());
+      const lt = (p.x - m.l) / (W - m.l - m.r) * 8 - 2;
+      hair.style.display = ''; hair.setAttribute('x1', p.x); hair.setAttribute('x2', p.x);
+      const rows = series.map((ser) => { const q = ser.pts.reduce((a, b) => Math.abs(Math.log10(b[0]) - lt) < Math.abs(Math.log10(a[0]) - lt) ? b : a); const v = Math.round(q[1]); return `<div><span style="color:${ser.col}">■</span> ${ser.name}: ${q[1] <= -300 ? 'gone' : pow(v)}</div>`; }).join('');
+      tip.show(`<div class="h">time ${(10 ** lt).toPrecision(2)}</div>${rows}`, ev);
+    });
+    hit.addEventListener('mouseleave', () => { hair.style.display = 'none'; tip.hide(); });
+  })();
+
+  // Kondoh waffles
+  (function () {
+    const box = document.getElementById('kondoh'); const K = DATA.kondoh;
+    const rows = [[0, 'Fixed diets', 'var(--fixed)'], [0.0025, 'Slow adaptation', 'var(--slow)'], [0.025, 'Medium', 'var(--mid)'], [0.25, 'Fast', 'var(--fast)']];
+    const W = 880, sq = 18, g = 4, rowH = 42, left = 170, colW = 12 * (sq + g) + 70, H = 40 + rows.length * rowH;
+    const s = svgFor(box, W, H, 'With the extinction line, all species persist in 0, 1, 2 and 11 of 12 webs for fixed, slow, medium and fast adaptation. Without it, adaptive webs keep every species in 12 of 12 at every speed; fixed-diet webs in 0 of 12.');
+    const tip = tipFor(box);
+    txt(s, left, 18, 'with extinction line', 'fig-strong'); txt(s, left + colW + 30, 18, 'without', 'fig-strong');
+    rows.forEach(([G, name, col], r) => {
+      const d = K.find((k) => k.G === G); const y = 34 + r * rowH;
+      txt(s, 0, y + sq / 2 + 4, name, 'fig-strong');
+      [['thr', left], ['nothr', left + colW + 30]].forEach(([key, x0]) => {
+        const n = d[key];
+        const grp = el('g', {}, s);
+        for (let i = 0; i < d.n; i++) el('rect', { x: x0 + i * (sq + g), y, width: sq, height: sq, rx: 3, fill: i < n ? col : 'transparent', stroke: i < n ? col : 'var(--ink-3)', 'stroke-width': 1.2 }, grp);
+        txt(grp, x0 + 12 * (sq + g) + 6, y + sq / 2 + 4, `${n} of ${d.n}`);
+        el('rect', { x: x0 - 2, y: y - 2, width: 12 * (sq + g) + 50, height: sq + 4, fill: 'transparent' }, grp);
+        grp.addEventListener('mousemove', (ev) => tip.show(`<div class="h">${name}, ${key === 'thr' ? 'with' : 'without'} extinction line</div>every species persisted in ${n} of ${d.n} webs`, ev));
+        grp.addEventListener('mouseleave', tip.hide);
+      });
+    });
+  })();
+
+  // Network
+  (function () {
+    const box = document.getElementById('network'); const seg = document.getElementById('netseg');
+    const { species, links } = DATA.net;
+    let mode = 'both';
+    const modes = [['both', `All ${links.length} possible links + used`], ['used', `Only the ${links.filter((l) => l.used).length} used`]];
+    function buttons() { seg.replaceChildren(); modes.forEach(([k, lab]) => { const b = document.createElement('button'); b.type = 'button'; b.id = `net-${k}`; b.textContent = lab; b.setAttribute('aria-pressed', String(mode === k)); b.addEventListener('click', () => { mode = k; buttons(); draw(); }); seg.appendChild(b); }); }
+    function draw() {
+      const W = 880, H = 520, cx = W / 2, cy = H / 2, R = 215;
+      const s = svgFor(box, W, H, `A web of ${species.length} species with ${links.length} possible feeding links, of which ${links.filter((l) => l.used).length} are used at the adaptive end state.`);
+      const tip = tipFor(box);
+      el('defs', {}, s).innerHTML = '<marker id="ar-net" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--adapt)"/></marker>';
+      const pos = {}; species.forEach((d, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / species.length; pos[d.id] = [cx + R * Math.cos(a), cy + R * Math.sin(a)]; });
+      const lines = [];
+      links.forEach((l) => {
+        if (!l.used && mode === 'used') return;
+        const [x1, y1] = pos[l.p], [x2, y2] = pos[l.c]; const dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy), off = 15;
+        const ln = el('line', { x1: x1 + dx / len * off, y1: y1 + dy / len * off, x2: x2 - dx / len * (off + 2), y2: y2 - dy / len * (off + 2), stroke: l.used ? 'var(--adapt)' : 'var(--rule)', 'stroke-width': l.used ? 2.2 : 1.2 }, s);
+        if (l.used) ln.setAttribute('marker-end', 'url(#ar-net)');
+        lines.push([ln, l]);
+      });
+      lines.filter(([, l]) => l.used).forEach(([ln]) => s.appendChild(ln));
+      species.forEach((d) => {
+        const [x, y] = pos[d.id]; const g = el('g', {}, s);
+        el('circle', { cx: x, cy: y, r: 13, fill: 'var(--paper)', stroke: 'var(--ink)', 'stroke-width': 1.5 }, g);
+        txt(g, x, y + 4, d.id, 'fig-strong', 'middle');
+        g.addEventListener('mousemove', (ev) => {
+          const eats = links.filter((l) => l.c === d.id), used = eats.filter((l) => l.used).map((l) => l.p);
+          lines.forEach(([ln, l]) => ln.setAttribute('opacity', l.c === d.id || l.p === d.id ? 1 : 0.15));
+          tip.show(`<div class="h">Species ${d.id}</div>can eat ${eats.length} species · eats ${used.length ? used.join(', ') : 'none'} at the end`, ev);
+        });
+        g.addEventListener('mouseleave', () => { lines.forEach(([ln]) => ln.setAttribute('opacity', 1)); tip.hide(); });
+      });
+    }
+    buttons(); draw();
+  })();
+})();
+</script>
+
+</body>
+</html>
