@@ -276,10 +276,11 @@ details.numbers th { color: var(--ink); font-weight: 500; }
   <section class="col">
     <span class="tag">Known since 1991</span>
     <h2>Adapted diets get narrow</h2>
-    <p>Each predator could eat many prey, but at the end state it eats only one or two. The links still in use form a tree-like network (a forest, in graph terms) with fewer links than twice the number of species. Matsuda and Namba (1991) proved this for coevolutionarily stable communities. It matters for theory, because calculations that are hard on dense networks are often exact on trees.</p>
+    <p>Each predator could eat many prey, but at the end state it eats only one or two. In total, fewer links stay in use than twice the number of species. Matsuda and Namba (1991) proved this for coevolutionarily stable communities. It matters for theory, because it keeps the network of feeding ties sparse.</p>
     <p>The argument is short. If a predator divides its effort between two prey, they must give it the same return:</p>
     <div class="eq">f<sub>ij</sub> N<sub>j</sub> = f<sub>il</sub> N<sub>l</sub></div>
-    <p>Each such tie fixes the ratio of two prey densities. A loop of ties would constrain the same ratio along two different routes, which requires an exact coincidence among the feeding rates. So the links in use form no loops, and a network without loops has fewer links than nodes.</p>
+    <p>Each such tie fixes the ratio of two prey densities. Count every species twice, once in its role as a predator and once in its role as prey, and draw each link in use between a predator role and a prey role. A loop in that network of roles would constrain the same ratio along two different routes, which requires an exact coincidence among the feeding rates. So the network of roles has no loops, and a network without loops has fewer links than nodes: here, fewer than twice the number of species.</p>
+    <p>That is a statement about roles, not species. Because one species can be a predator in one tie and a prey in another, the links in use can still form loops among species, including feeding loops: in the web below, 13 eats 1, 15 eats 13, 14 eats 15, 8 eats 14, 5 eats 8 and 1 eats 5. Kondoh's random webs allow such loops, which are rare in real food webs. His second kind of web, the cascade web, has none: species are ranked and each can eat only species below it. Adaptive diets help there in the same way. In cascade webs of 20 species with fast adaptation, the share of webs that kept every species rose from 25 to 86 percent as more links were added, against about 3 percent with fixed diets.</p>
   </section>
 
   <section class="wide">
