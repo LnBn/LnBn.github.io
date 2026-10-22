@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A price rule for species survival in adaptive food webs
-description: Predators that switch between prey help large food webs keep their species. Each adaptive predator holds its prey at a price. An illustrated summary of a paper in preparation.
+description: Predators that switch between prey help large food webs keep their species. Each adaptive predator holds the prey it eats at a price. An illustrated summary of a paper in preparation.
 img: assets/img/projects/flexible_diets.png
 importance: 0
 permalink: /projects/flexible-diets-summary/
