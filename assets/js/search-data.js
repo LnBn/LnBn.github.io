@@ -28,9 +28,9 @@ ninja.data = [{
           description: "How one Counter-Strike 2 update halved the price of knives and gloves, and set a no-arbitrage floor under the skins that can be traded for them.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/cs2-tradeup-parity/";
-            },},{id: "projects-flexible-diets-fragile-routes",
-          title: 'Flexible diets, fragile routes',
-          description: "Why predators that switch between prey help complex food webs hold together, and why the speed of switching matters. An illustrated summary of work in progress.",
+            },},{id: "projects-a-price-rule-for-species-survival-in-adaptive-food-webs",
+          title: 'A price rule for species survival in adaptive food webs',
+          description: "Predators that switch between prey help large food webs keep their species. Each adaptive predator holds the prey it eats at a price. An illustrated summary of a paper in preparation.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/flexible-diets-summary/";
             },},{id: "projects-learn-claude",
