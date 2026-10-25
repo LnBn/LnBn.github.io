@@ -7,9 +7,9 @@ importance: 4
 permalink: /projects/learn-claude/
 ---
 
-I wanted to work through textbooks with a teacher that checks I have understood each step before it moves on, and that leaves behind notes I would actually reread. learn-claude is that teacher. It runs inside [Claude Code](https://code.claude.com) on a normal Claude subscription, and writes every lesson into a note in Obsidian.
+learn-claude is a tutor for working through a topic or a textbook. It teaches one idea at a time, checks that you have understood each one before it moves on, and leaves behind notes that read like a textbook chapter. It runs inside [Claude Code](https://code.claude.com) on a normal Claude subscription, and writes every lesson into a note in Obsidian.
 
-It began as a port of [Eero Alvar's learn system](https://github.com/amosblomqvist/learn) to Claude Code. The teaching method comes from there. I built the quiz popup, the notes, the textbook courses, the exams and the practice modes on top.
+It began as a port of [Eero Alvar's learn system](https://github.com/amosblomqvist/learn) to Claude Code. The core of it is Eero's: the teaching method, the graded quiz popup, the lesson written into a markdown note, and the subagents that check facts and draw diagrams. This version reworks those pieces for Claude Code and adds textbook courses, typed answers, exams, mock interviews, technique notes and the practice modes.
 
 **Code:** [github.com/LnBn/learn-claude](https://github.com/LnBn/learn-claude)
 
@@ -21,9 +21,11 @@ A lesson starts by probing what you already know and agreeing a plan. Then each 
 
 ### A lesson
 
-You ask to learn something. The teacher asks a few quick questions to find where your knowledge runs out, then proposes a map from what you know to what you want. Each idea on the map becomes a short written section in the note, followed by two quizzes in a popup over the terminal. The first checks that you read carefully. The second asks you to use the idea on a problem you haven't seen.
+You ask to learn something. The teacher asks a few quick questions to find where your knowledge runs out, then proposes a map from what you know to what you want. Each idea on the map becomes a short written section in the note, followed by two quizzes in a popup over the terminal. The first checks that you read carefully. The second, the apply question, changes one thing about the worked example, so that the recipe from the section no longer works on its own and only knowing *why* it works gets you the answer.
 
-For example, while I was working through a book of quant interview puzzles, a section on the bridge-and-torch puzzle (four people, one torch, a bridge that holds two) ended with an apply question that changed their crossing times to 6, 5, 4 and 1 minutes. I answered 13; the answer was 17, because I had forgotten that the last two people still have to cross. The teacher showed me what my plan had left out, gave me a new version with five people, and moved on only after I got that one right.
+For example, one section of a course on a book of quant interview puzzles teaches a classic: four people must cross a bridge at night, two at a time, with one torch that must be carried on every crossing, and a pair walks at the slower person's pace. With crossing times of 10, 5, 2 and 1 minutes, the obvious plan, where the fastest person walks each of the others over and brings the torch back, takes 19 minutes. The section shows that sending the two fastest over first, then the two slowest together, takes 17, and ends with the key idea: pay for the two slowest once.
+
+The apply question changes the times to 6, 5, 4 and 1. Now the key idea gives 19, and the obvious plan wins with 17. Pairing the two slowest saves one walk by the 5-minute person and one return by the 1-minute person (6 minutes), but makes the second-fastest person cross two extra times: 4 minutes with the old times, 8 with the new. If you memorised "pair the two slowest", you answer 19. If you know why it worked, you weigh the saving against the cost and answer 17. Answer 19, and the teacher re-teaches when pairing pays before it builds anything on the idea.
 
 ### What else it does
 
@@ -34,6 +36,6 @@ For example, while I was working through a book of quant interview puzzles, a se
 
 ### How it is built
 
-The teacher is the Claude Code session itself, guided by skills (prompts it loads on demand) that hold the teaching method and the procedures for courses, exams, interviews and practice. Quizzes go through a small MCP server, a tool plugin that opens a popup in the terminal and marks your answer. Subagents check facts on the web, and draw diagrams and look at them before you see them. The parts that have to be exact, such as marking answers and exams and scheduling reviews, are Python scripts with unit tests.
+The teacher is the Claude Code session itself, guided by skills (prompts it loads on demand) that hold the teaching method and the procedures for courses, exams, interviews and practice. Quizzes go through a small MCP server, a tool plugin that opens a popup in the terminal and marks your answer. One subagent checks facts on the web; another draws diagrams and checks each picture before you see it. The parts that have to be exact, such as marking answers and exams and scheduling reviews, are Python scripts with unit tests.
 
-Two parts are more interesting than they look. Typed answers like `2(2^n - 1)` are marked by evaluating your formula and the correct one at several points, so any equivalent form counts. And the notes are written by hooks that read Claude Code's own session transcript as the lesson happens. That keeps the teacher free to just teach, but the transcript format is internal, so this is the part most likely to break with a new release.
+Two parts are more interesting than they look. Typed answers like `2(2^n - 1)` are marked by evaluating your formula and the correct one at several points, so any equivalent form counts. And the note mirror, Eero's idea rebuilt here on Claude Code hooks, reads Claude Code's own session transcript as the lesson happens. That keeps the teacher free to just teach, but the transcript format is internal, so this is the part most likely to break with a new release.
