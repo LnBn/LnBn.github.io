@@ -21,11 +21,7 @@ A lesson starts by probing what you already know and agreeing a plan. Then each 
 
 ### A lesson
 
-You ask to learn something. The teacher asks a few quick questions to find where your knowledge runs out, then proposes a map from what you know to what you want. Each idea on the map becomes a short written section in the note, followed by two quizzes in a popup over the terminal. The first checks that you read carefully. The second, the apply question, changes one thing about the worked example, so that the recipe from the section no longer works on its own and only knowing *why* it works gets you the answer.
-
-For example, the first lesson of a course on Kevin Murphy's *Probabilistic Machine Learning: An Introduction* argues that a classifier should output a probability, not just a label. Its worked example is a spam filter where deleting a real email costs 10 and letting a spam through costs 1. Weighing the expected costs, you should delete only when the filter is more than about 91% sure. At 70% the filter's best guess is "spam", yet the right action is to keep the email.
-
-The apply question moves the idea to a clinic: treating a healthy patient costs 2, and not treating a sick one costs 18. Above what probability of disease should you treat? Putting the big cost on top again gives a high threshold (90%). But in the spam case the expensive mistake was acting, and here it is *not* acting, so the threshold is low: treat whenever the disease is more than 10% likely (2 out of 2 + 18), even when the patient is most likely healthy. The quiz's wrong options are what a half-learned recipe produces (90%, 50% or 11%), and picking one means the teacher re-teaches the idea before it builds anything on it.
+You ask to learn something. The teacher asks a few quick questions to find where your knowledge runs out, then proposes a map from what you know to what you want. Each idea on the map becomes a short written section in the note, followed by two quizzes in a popup over the terminal. The first checks that you read carefully. The second asks you to apply the idea to a problem you haven't seen worked: usually the section's example with one thing changed, so that following the recipe is not enough and you need to know *why* it works. If you miss it, the teacher re-teaches that part and sets a fresh question before it builds anything on the idea.
 
 ### What else it does
 
